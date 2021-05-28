@@ -35,6 +35,6 @@
         "**/*.ts",
         "**/*.tsx",
         "**/*.js",
-        "**/*.json",
+        "**/*.json", "widgets/SelectPicker/SelectPickerValidator.test.jsx",
     ]
 }
