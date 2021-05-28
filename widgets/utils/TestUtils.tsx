@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import { oneOfType, element, arrayOf } from 'prop-types';
 
 const ProviderWrapper = ({ children }) => (
-  <ThemeProvider theme={{}}>{children}</ThemeProvider>
+  <ThemeProvider theme={{} as any}>{children}</ThemeProvider>
 );
 
 ProviderWrapper.propTypes = {

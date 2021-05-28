@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Variant } from "../../utils/constants";
-import { fullTestProps } from "../../utils/UITestingHelper";
+import { Variant } from "../utils/constants";
+import { fullTestProps } from "../utils/UITestingHelper";
 
 
 type Props = {
