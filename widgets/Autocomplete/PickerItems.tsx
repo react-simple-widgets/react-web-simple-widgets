@@ -1,26 +1,23 @@
 import React from "react";
 import { array, func, object } from "prop-types";
-import styled from "styled-components";
+import styled from "styled-components/native";
 import { FlatList, Platform, TouchableWithoutFeedback } from "react-native";
-import { IOS } from "@airasia-common/libraries/constants";
-import { BodyText } from "../Text";
-import { Row, Wrapper } from "..";
-import Styled from "../../utils/Styled";
+import { Text } from "react-native-styled-paper/components/Typography";
 
 const ITEM_HEIGHT = 50;
 const MAX_ITEMS = 3;
 const MAX_HEIGHT = MAX_ITEMS * ITEM_HEIGHT;
 
-const PikcerItemsContainer = styled(Wrapper)`
-  left: 0;
-  right: 0;
-`;
+const PikcerItemsContainer = styled(Wrapper)({
+  left: 0,
+  right: 0,
+});
 
 PikcerItemsContainer.defaultProps = {
     border: "1px solid",
     borderColor: "greyLight",
     borderRadius: 4,
-    ...(Platform.OS === IOS
+    ...(Platform.OS === "ios"
         ? { position: "absolute", boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.08)" }
         : { elevation: 2 }),
     width: 1,
@@ -29,7 +26,7 @@ PikcerItemsContainer.defaultProps = {
 
 PikcerItemsContainer.displayName = "PikcerItemsContainer";
 
-const Option = Styled(Row, {
+const Option = styled(Row)({
     paddding: 0,
     paddingX: 16,
     paddingTop: 12,
@@ -68,7 +65,7 @@ const PickerItems = ({
                         >
                             <Option paddingTop={index === 0 ? 24 : 12}>
                                 {itemsSplitted.map(({ text, hightlight }, index) => (
-                                    <BodyText
+                                    <Text
                                         key={index}
                                         lineHeight="20px"
                                         fontWeight={400}
@@ -77,7 +74,7 @@ const PickerItems = ({
                                         }
                                     >
                                         {text}
-                                    </BodyText>
+                                    </Text>
                                 ))}
                             </Option>
                         </TouchableWithoutFeedback>

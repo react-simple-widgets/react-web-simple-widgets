@@ -9,23 +9,17 @@ import {
     View,
     StyleSheet,
 } from "react-native";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import styled from "styled-components";
-import theme from "@airasia-common/libraries/theming/theme";
-import { IOS } from "@airasia-common/libraries/constants";
-import { Wrapper, BodyText } from "../";
-import Styled from "../../utils/Styled";
-import { Text } from "../Text";
 
 const styles = StyleSheet.create({
     divider: {
         borderTopWidth: 1,
         borderTopColor: "#D9DBE0",
-        backgroundColor: theme.colors.primaryWhite,
+        backgroundColor: ({ theme }) => theme.colors.primaryWhite,
     },
     modalViewTop: {
         flex: 1,
-        backgroundColor: theme.colors.darkBlack,
+        backgroundColor: ({ theme }) => theme.colors.darkBlack,
         opacity: 0.8,
     },
     selection: {
@@ -34,7 +28,7 @@ const styles = StyleSheet.create({
     },
     sectionList: {
         paddingTop: 14,
-        backgroundColor: theme.colors.primaryWhite,
+        backgroundColor: ({ theme }) => theme.colors.primaryWhite,
     },
     itemText: {
         height: 48,
@@ -43,16 +37,16 @@ const styles = StyleSheet.create({
     },
     highlightItem: {
         fontWeight: "500",
-        color: theme.colors.secondary,
+        color: ({ theme }) => theme.colors.secondary,
     },
     itemRightText: {
         height: 48,
         fontSize: 16,
         lineHeight: 20,
-        color: theme.colors.greyDark,
+        color: ({ theme }) => theme.colors.greyDark,
     },
     keyboardAvoidingView: {
-        backgroundColor: theme.colors.greyDark,
+        backgroundColor: ({ theme }) => theme.colors.greyDark,
     },
     title: {
         display: "flex",
@@ -64,7 +58,7 @@ const styles = StyleSheet.create({
         paddingRight: 16,
         borderTopLeftRadius: 4,
         borderTopRightRadius: 4,
-        backgroundColor: theme.colors.primaryWhite,
+        backgroundColor: ({ theme }) => theme.colors.primaryWhite,
     },
 });
 
@@ -75,7 +69,7 @@ const CloseIcon = styled(MaterialIcons)`
   margin-left: 23px;
 `;
 
-const Item = Styled(Wrapper, {
+const Item = styled(Wrapper)({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",

@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import { TouchableOpacity, Modal, StyleSheet } from "react-native";
+import * as React from "react";
+import { TouchableOpacity, Modal, StyleSheet, View } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import theme from "@airasia-common/libraries/theming/theme";
-import Styled from "../../utils/Styled";
-import { Wrapper } from "..";
 import { testProp } from "../../utils/UITestingHelper";
 import InputAccessoryView from "./InputAccessoryView";
+import styled from "styled-components/native";
 
-const ModalViewBottom = Styled(Wrapper, {
+const ModalViewBottom = styled(View)({
     justifyContent: "center",
-    background: theme.colors.grey,
+    background: ({ theme }) => theme.colors.grey,
 });
 
 const styles = StyleSheet.create({
@@ -23,18 +20,29 @@ const ModalViewTop = props => (
     <TouchableOpacity style={styles.modalViewTop} {...props} accessible={false} />
 );
 
-const DateTimePickerView = ({
-    onChangeValue,
-    onCancel,
-    inputAccessoryProps,
-    showPicker,
-    defaultValue,
-    mode,
-    dateTimePickerProps,
-}) => {
-    const [value, setValue] = useState(defaultValue);
+type Props = {
+    inputAccessoryProps?: Record<string, any>,
+    showPicker?: boolean,
+    onChangeValue?: (value) => void,
+    onCancel?: () => void,
+    defaultValue?: Record<string, any>,
+    mode?: string,
+    dateTimePickerProps?: Record<string, any>,
+};
 
-    useEffect(() => {
+const DateTimePickerView = (props: Props) => {
+    const {
+        onChangeValue,
+        onCancel,
+        inputAccessoryProps,
+        showPicker,
+        defaultValue,
+        mode,
+        dateTimePickerProps,
+    } = props;
+    const [value, setValue] = React.useState(defaultValue);
+
+    React.useEffect(() => {
         setValue(defaultValue);
     }, [defaultValue]);
 
@@ -74,16 +82,6 @@ const DateTimePickerView = ({
             </ModalViewBottom>
         </Modal>
     );
-};
-
-DateTimePickerView.propTypes = {
-    inputAccessoryProps: PropTypes.object,
-    showPicker: PropTypes.bool,
-    onChangeValue: PropTypes.func,
-    onCancel: PropTypes.func,
-    defaultValue: PropTypes.object,
-    mode: PropTypes.string,
-    dateTimePickerProps: PropTypes.object,
 };
 
 DateTimePickerView.defaultProps = {

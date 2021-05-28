@@ -8,12 +8,10 @@ import {
     TouchableOpacity,
     Dimensions,
 } from "react-native";
-import theme from "@airasia-common/libraries/theming/theme";
-import { Wrapper } from "../Wrapper";
-import Styled from "../../utils/Styled";
-import { H3, SubBodyText, Row } from "..";
 import { testProp } from "../../utils/UITestingHelper";
 import OptionItem, { ITEM_HEIGHT } from "./OptionItem";
+import styled, { ThemeContext } from "styled-components/native";
+import { Text } from "react-native-styled-paper/components/Typography";
 
 const { height: windowHeight } = Dimensions.get("window");
 const styles = StyleSheet.create({
@@ -26,18 +24,18 @@ const styles = StyleSheet.create({
     },
 });
 
-const Header = Styled(H3, {
+const Header = styled(Text)({
     lineHeight: "24px",
     background: "white",
 });
 
-const DoneText = Styled(SubBodyText, {
+const DoneText = styled(Text)({
     background: "transparent",
     color: "secondary",
     fontWeight: 500,
 });
 
-const BottomBox = Styled(Row, {
+const BottomBox = styled(Row)({
     height: 51,
     justifyContent: "space-between",
     alignItems: "center",
@@ -55,10 +53,12 @@ const PickerItemsView = ({
     onValueChange,
     inputAccessoryProps = {},
     onDonePress,
-    selectedItem = {},
+    selectedItem = {} as any,
 }) => {
+
+    const theme = React.useContext(ThemeContext);
     let currentSelectedRef;
-    let currentSelectedItem = {};
+    let currentSelectedItem: any = {};
     const handleRadioChange = (selected, index, setSelectedRef) => {
         currentSelectedItem = { value: selected, selectedIndex: index + 1 };
         if (setSelectedRef !== currentSelectedRef) {

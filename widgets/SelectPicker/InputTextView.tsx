@@ -1,15 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import theme from "@airasia-common/libraries/theming/theme";
 import { variant } from "styled-system";
-import Styled from "../../utils/Styled";
 import { Variant } from "../../utils/constants";
-import { Text, Wrapper, Row, CaptionText } from "..";
 import { testProp } from "../../utils/UITestingHelper";
+import styled from "styled-components/native";
 
-const Box = Styled(
-    Row,
+const Box = styled(
+    Row)(
     {
         width: 1,
         height: 50,
@@ -30,7 +27,7 @@ const Box = Styled(
     })
 );
 
-const IconBox = Styled(Wrapper, {
+const IconBox = styled(Wrapper, {
     position: "absolute",
     display: "flex",
     right: 21,
@@ -43,7 +40,7 @@ const truncatedStyle = {
     ellipsizeMode: "tail",
 };
 
-const PlaceHolderText = Styled(Text, {
+const PlaceHolderText = styled(Text, {
     color: "greyDark",
     opacity: 0.5,
     lineHeight: "20px",
@@ -51,14 +48,14 @@ const PlaceHolderText = Styled(Text, {
     ...truncatedStyle,
 });
 
-const ValueText = Styled(Text, {
+const ValueText = styled(Text, {
     color: "darkBlack",
     fontWeight: 400,
     lineHeight: "20px",
     paddingTop: 1,
 });
 
-const LabelText = Styled(CaptionText, {
+const LabelText = styled(CaptionText, {
     opacity: 0.5,
     ...truncatedStyle,
 });

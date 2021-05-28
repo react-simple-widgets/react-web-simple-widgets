@@ -1,34 +1,31 @@
 import React from "react";
 import { TouchableOpacity } from "react-native";
 import PropTypes from "prop-types";
-import theme from "@airasia-common/libraries/theming/theme";
-import { translate } from "@airasia-common/libraries/i18n/LocaleProvider";
-import Styled from "../../utils/Styled";
-import { Text, Wrapper, Row } from "..";
+import styled from "styled-components/native";
 
-const InputAccessoryViewBox = Styled(Row, {
+const InputAccessoryViewBox = styled(Row)({
     height: 45,
     justifyContent: "space-between",
     alignItems: "center",
     paddingX: 4,
-    background: theme.colors.greyLight,
+    background: ({ theme }) => theme.colors.greyLight,
     border: "1px solid",
     borderColor: "grey",
     zIndex: 2,
 });
 
-const ButtonText = Styled(Text, {
+const ButtonText = styled(Text)({
     background: "transparent",
     color: "tertiaryBlue",
 });
 
-const ButtonCancel = Styled(ButtonText, {
+const ButtonCancel = styled(ButtonText)({
     fontWeight: 400,
 });
 
 const InputAccessoryView = ({
-    doneText = translate("dateTimePicker.done"),
-    cancelText = translate("dateTimePicker.cancel"),
+    doneText = "Done",
+    cancelText = "Cancel",
     onDonePress,
     onCancelPress,
 }) => {
