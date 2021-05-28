@@ -1,3 +1,3 @@
-import FieldValidator from './FieldValidator';
+import FieldValidator from "./FieldValidator";
 
 export default FieldValidator;

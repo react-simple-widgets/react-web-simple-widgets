@@ -2,10 +2,9 @@ import { ThemeProvider } from 'styled-components';
 import { render } from 'react-native-testing-library';
 import { shallow } from 'enzyme';
 import { oneOfType, element, arrayOf } from 'prop-types';
-import theme from '@airasia-common/libraries/theming/theme';
 
 const ProviderWrapper = ({ children }) => (
-  <ThemeProvider theme= { theme } > { children } < /ThemeProvider>
+  <ThemeProvider theme={{}}>{children}</ThemeProvider>
 );
 
 ProviderWrapper.propTypes = {
@@ -19,7 +18,7 @@ export const shallowWithProvider = (component, options) => {
   });
 };
 
-export const renderWithProvider = (component, options) => {
+export const renderWithProvider = (component, options?) => {
   return render(component, {
     wrapper: ProviderWrapper,
     ...options,
@@ -33,7 +32,7 @@ const TestHook = ({ hook }) => {
 };
 
 export const testHook = targetHook => {
-  shallow(<TestHook hook={ targetHook } />);
+  shallow(<TestHook hook={targetHook} />);
 };
 
 export { shallowWithProvider as shallow, renderWithProvider as render };

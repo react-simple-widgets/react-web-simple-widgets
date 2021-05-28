@@ -1,6 +1,6 @@
 export const escapedRegExpFromString = str => {
-    const espacedSpecialWords = str.replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&');
-    const allowMoreWhiteSpaces = espacedSpecialWords.replace(/\s/g, '\\s*');
+    const espacedSpecialWords = str.replace(/[-[\]{}()*+?.,\\^$|#]/g, "\\$&");
+    const allowMoreWhiteSpaces = espacedSpecialWords.replace(/\s/g, "\\s*");
     return allowMoreWhiteSpaces;
 };
 
@@ -8,7 +8,7 @@ export const findItems = ({ queryText, data = [] }) => {
     if (!queryText || queryText.length === 0) {
         return [];
     }
-    const regex = new RegExp(`\\b${escapedRegExpFromString(queryText)}`, 'gi');
+    const regex = new RegExp(`\\b${escapedRegExpFromString(queryText)}`, "gi");
     const filteredItems = data
         .filter(item => item.label.search(regex) >= 0)
         .map(item => {
