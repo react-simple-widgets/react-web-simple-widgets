@@ -21,7 +21,7 @@ const libName = "";
         fs.removeSync("dist/widgets");
     }
 
-    pkg["main"] = "components/index.ts";
+    pkg["main"] = "widgets/index.ts";
     pkg["types"] = "types/index.d.ts";
 
     // Prepare the package.json for release

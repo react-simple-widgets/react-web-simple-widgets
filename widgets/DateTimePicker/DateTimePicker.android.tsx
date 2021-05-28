@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, memo } from "react";
+import * as React from "react";
 import PropTypes from "prop-types";
 import DateTimePicker from "@react-native-community/datetimepicker";
 
@@ -10,12 +10,22 @@ const areEqual = (prevProps, nextProps) => {
     );
 };
 
-const DateTimePickerModal = memo(
-    ({ date, mode, isVisible, onCancel, onConfirm, onHide, ...otherProps }) => {
-        const currentDateRef = useRef(date);
-        const [currentMode, setCurrentMode] = useState(null);
+type Props = {
+    date?: Date,
+    isVisible?: boolean,
+    onCancel: () => {},
+    onConfirm: () => {},
+    onHide?: () => {},
+    maximumDate?: Date,
+    minimumDate?: Date,
+};
 
-        useEffect(() => {
+const DateTimePickerModal = React.memo((props: Props) => {
+        const { date, mode, isVisible, onCancel, onConfirm, onHide, ...otherProps } = props;
+        const currentDateRef = React.useRef(date);
+        const [currentMode, setCurrentMode] = React.useState(null);
+
+        React.useEffect(() => {
             if (isVisible && currentMode === null) {
                 setCurrentMode(mode === "time" ? "time" : "date");
             } else if (!isVisible) {
@@ -61,16 +71,6 @@ const DateTimePickerModal = memo(
     },
     areEqual
 );
-
-DateTimePickerModal.propTypes = {
-    date: PropTypes.instanceOf(Date),
-    isVisible: PropTypes.bool,
-    onCancel: PropTypes.func.isRequired,
-    onConfirm: PropTypes.func.isRequired,
-    onHide: PropTypes.func,
-    maximumDate: PropTypes.instanceOf(Date),
-    minimumDate: PropTypes.instanceOf(Date),
-};
 
 DateTimePickerModal.defaultProps = {
     date: new Date(),

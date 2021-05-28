@@ -21,6 +21,16 @@
         "jsx": "preserve",
         "allowSyntheticDefaultImports": true
     },
-    "exclude": ["node_modules", ".next", "out", "examples"],
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"]
+    "exclude": [
+        "node_modules", 
+        ".next", 
+        "out", 
+        "examples"
+    ],
+    "include": [
+        "next-env.d.ts", 
+        "**/*.ts", 
+        "**/*.tsx", 
+        "**/*.js"
+    ]
 }

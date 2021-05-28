@@ -10,10 +10,10 @@ module.exports = {
     modulePaths: ["<rootDir>/node_modules"],
     preset: "react-native",
     moduleNameMapper: {
-        "^@app(.*)$": "<rootDir>/components$1",
+        "^@app(.*)$": "<rootDir>/widgets$1",
     },
     transformIgnorePatterns: [
         "node_modules/(?!(jest-)?react-native|@ptomasroos/react-native-multi-slider|@react-native-community/datetimepicker|@yourapp-common/(libraries|react-native)|@yourapp-snap/core)",
     ],
-    roots: ["<rootDir>/components/"],
+    roots: ["<rootDir>/widgets/"],
 };

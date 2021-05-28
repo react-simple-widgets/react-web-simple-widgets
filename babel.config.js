@@ -12,6 +12,7 @@ module.exports = {
             {
                 alias: {
                     components: "./components",
+                    widgets: "./widgets",
                 },
             },
         ],

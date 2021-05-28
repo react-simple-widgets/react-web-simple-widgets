@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { fireEvent } from "react-native-testing-library";
 import TextInput from "react-native-styled-paper/components/TextInput";
 import { render } from "../utils/TestUtils";

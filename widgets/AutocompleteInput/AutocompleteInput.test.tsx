@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import { FlatList, Text, TextInput } from "react-native";
-import Autocomplete from "..";
+import Autocomplete from "./AutocompleteInput";
 
 const ITEMS = [
     "A New Hope",

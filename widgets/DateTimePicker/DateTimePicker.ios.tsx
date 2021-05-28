@@ -1,5 +1,4 @@
-import React from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
 import {
     StyleSheet,
     Text,
@@ -24,29 +23,30 @@ export const HIGHLIGHT_COLOR_LIGHT = "#ebebeb";
 export const TITLE_FONT_SIZE = 20;
 export const TITLE_COLOR = "#8f8f8f";
 
-export class DateTimePickerModal extends React.PureComponent {
-  static propTypes = {
-      cancelTextIOS: PropTypes.string,
-      confirmTextIOS: PropTypes.string,
-      customCancelButtonIOS: PropTypes.elementType,
-      customConfirmButtonIOS: PropTypes.elementType,
-      customHeaderIOS: PropTypes.elementType,
-      customPickerIOS: PropTypes.elementType,
-      date: PropTypes.instanceOf(Date),
-      headerTextIOS: PropTypes.string,
-      modalPropsIOS: PropTypes.any,
-      modalStyleIOS: PropTypes.any,
-      isDarkModeEnabled: PropTypes.bool,
-      isVisible: PropTypes.bool,
-      pickerContainerStyleIOS: PropTypes.any,
-      onCancel: PropTypes.func.isRequired,
-      onConfirm: PropTypes.func.isRequired,
-      onChange: PropTypes.func,
-      onHide: PropTypes.func,
-      maximumDate: PropTypes.instanceOf(Date),
-      minimumDate: PropTypes.instanceOf(Date),
-  };
+type Props = {
+    cancelTextIOS?: string,
+    confirmTextIOS?: string,
+    customCancelButtonIOS?: React.ReactElement,
+    customConfirmButtonIOS?: React.ReactElement,
+    customHeaderIOS?: React.ReactElement,
+    customPickerIOS?: React.ReactElement,
+    date?: Date,
+    headerTextIOS?: string,
+    modalPropsIOS?: any,
+    modalStyleIOS?: any,
+    isDarkModeEnabled?: boolean,
+    isVisible?: boolean,
+    pickerContainerStyleIOS?: any,
+    onCancel: () => {},
+    onConfirm: () => {},
+    onChange?: () => {},
+    onHide?: () => {},
+    maximumDate?: Date,
+    minimumDate?: Date,
+};
 
+export class DateTimePickerModal extends React.PureComponent<Props> {
+  
   static defaultProps = {
       cancelTextIOS: "Cancel",
       confirmTextIOS: "Confirm",

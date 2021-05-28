@@ -124,7 +124,7 @@
         }
     },
     "react-native-builder-bob": {
-        "source": "components",
+        "source": "widgets",
         "output": "dist",
         "targets": [
             "commonjs",
@@ -137,7 +137,7 @@
             ]
         ],
         "files": [
-            "components/"
+            "widgets/"
         ]
     }
 }

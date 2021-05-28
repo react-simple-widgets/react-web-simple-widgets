@@ -1,8 +1,60 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { FlatList, Platform, StyleSheet, Text, TextInput, View, ViewPropTypes } from "react-native";
+import { FlatList, Platform, StyleProp, StyleSheet, Text, TextInput, View, ViewPropTypes } from "react-native";
 
-export const AutocompleteInput = (props) => {
+type Props = StyleProp<TextInput> & {
+    /**
+   * These styles will be applied to the container which
+   * surrounds the autocomplete component.
+   */
+    containerStyle: ViewPropTypes ? ViewPropTypes.style : object,
+    /**
+   * Assign an array of data objects which should be
+   * rendered in respect to the entered text.
+   */
+    data: array,
+    /**
+   * Props which can be applied to result `FlatList`.
+   */
+    flatListProps: FlatList.propTypes || object,
+    /**
+   * Set to `true` to hide the suggestion list.
+   */
+    hideResults: bool,
+    /**
+   * These styles will be applied to the container which surrounds
+   * the textInput component.
+   */
+    inputContainerStyle: ViewPropTypes ? ViewPropTypes.style : object,
+    /**
+   * Set `keyboardShouldPersistTaps` to true if RN version is <= 0.39.
+   */
+    keyboardShouldPersistTaps: oneOfType([
+        oneOf(["always", "handeld", "never"]),
+        bool,
+    ]),
+    /**
+   * These style will be applied to the result list.
+   */
+    listContainerStyle: ViewPropTypes ? ViewPropTypes.style : object,
+    /**
+   * `onShowResults` will be called when list is going to
+   * show/hide results.
+   */
+    onShowResults: func,
+    /**
+   * `onShowResults` will be called when list is going to
+   * show/hide results.
+   */
+    onStartShouldSetResponderCapture: func,
+    /**
+   * renders custom TextInput. All props passed to this function.
+   */
+    renderTextInput: PropTypes.func,
+};
+
+export const AutocompleteInput = (props: Props) => {
+
     function renderResultList(data, listProps) {
         const { style, ...flatListProps } = listProps;
 
@@ -46,58 +98,6 @@ export const AutocompleteInput = (props) => {
             )}
         </View>
     );
-};
-
-AutocompleteInput.propTypes = {
-    ...TextInput.propTypes,
-    /**
-   * These styles will be applied to the container which
-   * surrounds the autocomplete component.
-   */
-    containerStyle: ViewPropTypes ? ViewPropTypes.style : PropTypes.object,
-    /**
-   * Assign an array of data objects which should be
-   * rendered in respect to the entered text.
-   */
-    data: PropTypes.array,
-    /**
-   * Props which can be applied to result `FlatList`.
-   */
-    flatListProps: FlatList.propTypes || PropTypes.object,
-    /**
-   * Set to `true` to hide the suggestion list.
-   */
-    hideResults: PropTypes.bool,
-    /**
-   * These styles will be applied to the container which surrounds
-   * the textInput component.
-   */
-    inputContainerStyle: ViewPropTypes ? ViewPropTypes.style : PropTypes.object,
-    /**
-   * Set `keyboardShouldPersistTaps` to true if RN version is <= 0.39.
-   */
-    keyboardShouldPersistTaps: PropTypes.oneOfType([
-        PropTypes.oneOf(["always", "handeld", "never"]),
-        PropTypes.bool,
-    ]),
-    /**
-   * These style will be applied to the result list.
-   */
-    listContainerStyle: ViewPropTypes ? ViewPropTypes.style : PropTypes.object,
-    /**
-   * `onShowResults` will be called when list is going to
-   * show/hide results.
-   */
-    onShowResults: PropTypes.func,
-    /**
-   * `onShowResults` will be called when list is going to
-   * show/hide results.
-   */
-    onStartShouldSetResponderCapture: PropTypes.func,
-    /**
-   * renders custom TextInput. All props passed to this function.
-   */
-    renderTextInput: PropTypes.func,
 };
 
 const defaultKeyExtractor = (_, index) => `key-${index}`;

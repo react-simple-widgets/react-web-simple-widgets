@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
 import {
     Animated,
     DeviceEventEmitter,
@@ -13,13 +12,15 @@ import {
 const MODAL_ANIM_DURATION = 300;
 const MODAL_BACKDROP_OPACITY = 0.4;
 
-export class Modal extends Component {
-  static propTypes = {
-      onBackdropPress: PropTypes.func,
-      onHide: PropTypes.func,
-      isVisible: PropTypes.bool,
-      contentStyle: PropTypes.any,
-  };
+type Props = {
+    onBackdropPress?: () => {},
+    onHide?: () => {},
+    isVisible?: boolean,
+    contentStyle?: Record<string, any>,
+};
+
+export class Modal extends React.Component<Props> {
+  
 
   static defaultProps = {
       onBackdropPress: () => null,
@@ -55,7 +56,7 @@ export class Modal extends Component {
       this._isMounted = false;
   }
 
-  componentDidUpdate(prevProps: ModalPropsType) {
+  componentDidUpdate(prevProps: Props) {
       if (this.props.isVisible && !prevProps.isVisible) {
           this.show();
       } else if (!this.props.isVisible && prevProps.isVisible) {
