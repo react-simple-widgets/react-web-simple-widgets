@@ -1,0 +1,16 @@
+
+
+# dependencies
+node_modules
+
+# dist
+/dist
+/types
+/docs/dist
+
+.eslintcache
+.npmrc
+.githubtoken
+.env
+
+README-BK.md
