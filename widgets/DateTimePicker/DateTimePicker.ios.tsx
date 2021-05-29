@@ -31,16 +31,17 @@ type Props = {
     customHeaderIOS?: React.ReactElement,
     customPickerIOS?: React.ReactElement,
     date?: Date,
+    mode?: string,
     headerTextIOS?: string,
     modalPropsIOS?: any,
     modalStyleIOS?: any,
     isDarkModeEnabled?: boolean,
     isVisible?: boolean,
     pickerContainerStyleIOS?: any,
-    onCancel: () => {},
-    onConfirm: () => {},
-    onChange?: () => {},
-    onHide?: () => {},
+    onCancel: () => void,
+    onConfirm: (date) => void,
+    onChange?: (date) => void,
+    onHide?: (flag, date?) => void,
     maximumDate?: Date,
     minimumDate?: Date,
 };
@@ -125,10 +126,15 @@ export class DateTimePickerModal extends React.PureComponent<Props> {
           ? Appearance.getColorScheme() === "dark"
           : isDarkModeEnabled || false;
 
-      const ConfirmButtonComponent = customConfirmButtonIOS || ConfirmButton;
-      const CancelButtonComponent = customCancelButtonIOS || CancelButton;
-      const HeaderComponent = customHeaderIOS || Header;
-      const PickerComponent = customPickerIOS || DateTimePicker;
+      //   const ConfirmButtonComponent = customConfirmButtonIOS || ConfirmButton;
+      const ConfirmButtonComponent = ConfirmButton;
+      //   const CancelButtonComponent = customCancelButtonIOS || CancelButton;
+      const CancelButtonComponent = CancelButton;
+      //   const HeaderComponent = customHeaderIOS || Header;
+      const HeaderComponent = Header;
+      //   const PickerComponent = customPickerIOS || DateTimePicker;
+      const PickerComponent = DateTimePicker;
+
 
       const themedContainerStyle = _isDarkModeEnabled
           ? pickerStyles.containerDark

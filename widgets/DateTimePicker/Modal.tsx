@@ -13,15 +13,14 @@ const MODAL_ANIM_DURATION = 300;
 const MODAL_BACKDROP_OPACITY = 0.4;
 
 type Props = {
-    onBackdropPress?: () => {},
-    onHide?: () => {},
+    onBackdropPress?: () => void,
+    onHide?: () => void,
     isVisible?: boolean,
     contentStyle?: Record<string, any>,
 };
 
 export class Modal extends React.Component<Props> {
   
-
   static defaultProps = {
       onBackdropPress: () => null,
       onHide: () => null,

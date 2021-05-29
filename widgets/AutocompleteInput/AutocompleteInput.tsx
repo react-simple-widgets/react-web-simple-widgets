@@ -1,56 +1,54 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { FlatList, Platform, StyleProp, StyleSheet, Text, TextInput, View, ViewPropTypes } from "react-native";
+import { FlatList, Platform, StyleProp, StyleSheet, Text, TextInput, View } from "react-native";
 
 type Props = StyleProp<TextInput> & {
     /**
    * These styles will be applied to the container which
    * surrounds the autocomplete component.
    */
-    containerStyle: ViewPropTypes ? ViewPropTypes.style : object,
+    containerStyle?: StyleProp<View>,
     /**
    * Assign an array of data objects which should be
    * rendered in respect to the entered text.
    */
-    data: array,
+    data: string[] | Record<string, any>[],
     /**
    * Props which can be applied to result `FlatList`.
    */
-    flatListProps: FlatList.propTypes || object,
+    flatListProps?: StyleProp<FlatList>,
     /**
    * Set to `true` to hide the suggestion list.
    */
-    hideResults: bool,
+    hideResults?: boolean,
     /**
    * These styles will be applied to the container which surrounds
    * the textInput component.
    */
-    inputContainerStyle: ViewPropTypes ? ViewPropTypes.style : object,
+    inputContainerStyle?: StyleProp<View>,
     /**
    * Set `keyboardShouldPersistTaps` to true if RN version is <= 0.39.
    */
-    keyboardShouldPersistTaps: oneOfType([
-        oneOf(["always", "handeld", "never"]),
-        bool,
-    ]),
+    keyboardShouldPersistTaps?: "always" | "handeld" | "never" | boolean,
     /**
    * These style will be applied to the result list.
    */
-    listContainerStyle: ViewPropTypes ? ViewPropTypes.style : object,
+    listContainerStyle?: StyleProp<View>,
     /**
    * `onShowResults` will be called when list is going to
    * show/hide results.
    */
-    onShowResults: func,
+    onShowResults?: (showResults) => void,
     /**
    * `onShowResults` will be called when list is going to
    * show/hide results.
    */
-    onStartShouldSetResponderCapture: func,
+    onStartShouldSetResponderCapture?: () => boolean,
     /**
    * renders custom TextInput. All props passed to this function.
    */
-    renderTextInput: PropTypes.func,
+    renderTextInput?: (props) => React.ReactNode,
+
+    [key: string]: any
 };
 
 export const AutocompleteInput = (props: Props) => {
@@ -65,7 +63,7 @@ export const AutocompleteInput = (props: Props) => {
         const { renderTextInput: renderFunction, style } = props;
         const textProps = {
             style: [styles.input, style],
-            ...props,
+            // ...props,
         };
 
         return renderFunction(textProps);
@@ -87,10 +85,10 @@ export const AutocompleteInput = (props: Props) => {
     onShowResults && onShowResults(showResults);
     return (
         <View style={[styles.container, containerStyle]}>
-            <View style={[styles.inputContainer, inputContainerStyle]}>{renderTextInput(props)}</View>
+            <View style={[styles.inputContainer, inputContainerStyle]}>{renderTextInput()}</View>
             {!hideResults && (
                 <View
-                    style={listContainerStyle}
+                    style={listContainerStyle as any}
                     onStartShouldSetResponderCapture={onStartShouldSetResponderCapture}
                 >
                     {showResults && renderResultList(data, flatListProps)}
@@ -166,7 +164,7 @@ const styles = StyleSheet.create({
         paddingLeft: 3,
     },
     ...Platform.select({
-        android: androidStyles,
+        android: androidStyles as any,
         ios: iosStyles,
         default: iosStyles,
     }),
