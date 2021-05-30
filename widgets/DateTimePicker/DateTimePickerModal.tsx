@@ -1,9 +1,13 @@
-import * as React from "react";
 import { Platform } from "react-native";
+import { DateTimePickerModal as DateTimePickerAndroid } from "./DateTimePicker.android";
+import { DateTimePickerModal as DateTimePickerIOS } from "./DateTimePicker.ios";
+import DateTimePickerMWeb from "./mweb";
 
-export function DateTimePickerModal() {
-    React.useEffect(() => {
-        console.warn(`DateTimePicker is not supported on: ${Platform.OS}`);
-    }, []);
-    return null;
-}
+const DateTimePickerModal = Platform.select({
+    android: DateTimePickerAndroid as any,
+    ios: DateTimePickerIOS,
+    web: DateTimePickerMWeb,
+    default: DateTimePickerAndroid,
+});
+
+export default DateTimePickerModal;

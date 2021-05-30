@@ -11,7 +11,7 @@
 # next.js
 /.next/
 /out/
-/react-native-styled-paper/
+/react-native-styled-simple-widgets/
 
 # production
 /build

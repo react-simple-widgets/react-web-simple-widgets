@@ -20,137 +20,137 @@ type Props = {
 };
 
 export class Modal extends React.Component<Props> {
-  
-  static defaultProps = {
-      onBackdropPress: () => null,
-      onHide: () => null,
-      isVisible: false,
-  };
 
-  state = {
-      isVisible: this.props.isVisible,
-      deviceWidth: Dimensions.get("window").width,
-      deviceHeight: Dimensions.get("window").height,
-  };
+    static defaultProps = {
+        onBackdropPress: () => null,
+        onHide: () => null,
+        isVisible: false,
+    };
 
-  animVal = new Animated.Value(0);
-  _isMounted = false;
+    state = {
+        isVisible: this.props.isVisible,
+        deviceWidth: Dimensions.get("window").width,
+        deviceHeight: Dimensions.get("window").height,
+    };
 
-  componentDidMount() {
-      this._isMounted = true;
-      if (this.state.isVisible) {
-          this.show();
-      }
-      DeviceEventEmitter.addListener(
-          "didUpdateDimensions",
-          this.handleDimensionsUpdate
-      );
-  }
+    animVal = new Animated.Value(0);
+    _isMounted = false;
 
-  componentWillUnmount() {
-      DeviceEventEmitter.removeListener(
-          "didUpdateDimensions",
-          this.handleDimensionsUpdate
-      );
-      this._isMounted = false;
-  }
+    componentDidMount() {
+        this._isMounted = true;
+        if (this.state.isVisible) {
+            this.show();
+        }
+        DeviceEventEmitter.addListener(
+            "didUpdateDimensions",
+            this.handleDimensionsUpdate
+        );
+    }
 
-  componentDidUpdate(prevProps: Props) {
-      if (this.props.isVisible && !prevProps.isVisible) {
-          this.show();
-      } else if (!this.props.isVisible && prevProps.isVisible) {
-          this.hide();
-      }
-  }
+    componentWillUnmount() {
+        DeviceEventEmitter.removeListener(
+            "didUpdateDimensions",
+            this.handleDimensionsUpdate
+        );
+        this._isMounted = false;
+    }
 
-  handleDimensionsUpdate = (dimensionsUpdate) => {
-      const deviceWidth = dimensionsUpdate.window.width;
-      const deviceHeight = dimensionsUpdate.window.height;
-      if (
-          deviceWidth !== this.state.deviceWidth ||
-      deviceHeight !== this.state.deviceHeight
-      ) {
-          this.setState({ deviceWidth, deviceHeight });
-      }
-  };
+    componentDidUpdate(prevProps: Props) {
+        if (this.props.isVisible && !prevProps.isVisible) {
+            this.show();
+        } else if (!this.props.isVisible && prevProps.isVisible) {
+            this.hide();
+        }
+    }
 
-  show = () => {
-      this.setState({ isVisible: true });
-      Animated.timing(this.animVal, {
-          easing: Easing.inOut(Easing.quad),
-          // Using native driver in the modal makes the content flash
-          useNativeDriver: false,
-          duration: MODAL_ANIM_DURATION,
-          toValue: 1,
-      }).start();
-  };
+    handleDimensionsUpdate = (dimensionsUpdate) => {
+        const deviceWidth = dimensionsUpdate.window.width;
+        const deviceHeight = dimensionsUpdate.window.height;
+        if (
+            deviceWidth !== this.state.deviceWidth ||
+            deviceHeight !== this.state.deviceHeight
+        ) {
+            this.setState({ deviceWidth, deviceHeight });
+        }
+    };
 
-  hide = () => {
-      Animated.timing(this.animVal, {
-          easing: Easing.inOut(Easing.quad),
-          // Using native driver in the modal makes the content flash
-          useNativeDriver: false,
-          duration: MODAL_ANIM_DURATION,
-          toValue: 0,
-      }).start(() => {
-          if (this._isMounted) {
-              this.setState({ isVisible: false }, this.props.onHide);
-          }
-      });
-  };
+    show = () => {
+        this.setState({ isVisible: true });
+        Animated.timing(this.animVal, {
+            easing: Easing.inOut(Easing.quad),
+            // Using native driver in the modal makes the content flash
+            useNativeDriver: false,
+            duration: MODAL_ANIM_DURATION,
+            toValue: 1,
+        }).start();
+    };
 
-  render() {
-      const {
-          children,
-          onBackdropPress,
-          contentStyle,
-          ...otherProps
-      } = this.props;
-      const { deviceHeight, deviceWidth, isVisible } = this.state;
-      const backdropAnimatedStyle = {
-          opacity: this.animVal.interpolate({
-              inputRange: [0, 1],
-              outputRange: [0, MODAL_BACKDROP_OPACITY],
-          }),
-      };
-      const contentAnimatedStyle = {
-          transform: [
-              {
-                  translateY: this.animVal.interpolate({
-                      inputRange: [0, 1],
-                      outputRange: [deviceHeight, 0],
-                      extrapolate: "clamp",
-                  }),
-              },
-          ],
-      };
-      return (
-          <ReactNativeModal
-              transparent
-              animationType="none"
-              visible={isVisible}
-              {...otherProps}
-          >
-              <TouchableWithoutFeedback onPress={onBackdropPress}>
-                  <Animated.View
-                      style={[
-                          styles.backdrop,
-                          backdropAnimatedStyle,
-                          { width: deviceWidth, height: deviceHeight },
-                      ]}
-                  />
-              </TouchableWithoutFeedback>
-              {isVisible && (
-                  <Animated.View
-                      style={[styles.content, contentAnimatedStyle, contentStyle]}
-                      pointerEvents="box-none"
-                  >
-                      {children}
-                  </Animated.View>
-              )}
-          </ReactNativeModal>
-      );
-  }
+    hide = () => {
+        Animated.timing(this.animVal, {
+            easing: Easing.inOut(Easing.quad),
+            // Using native driver in the modal makes the content flash
+            useNativeDriver: false,
+            duration: MODAL_ANIM_DURATION,
+            toValue: 0,
+        }).start(() => {
+            if (this._isMounted) {
+                this.setState({ isVisible: false }, this.props.onHide);
+            }
+        });
+    };
+
+    render() {
+        const {
+            children,
+            onBackdropPress,
+            contentStyle,
+            ...otherProps
+        } = this.props;
+        const { deviceHeight, deviceWidth, isVisible } = this.state;
+        const backdropAnimatedStyle = {
+            opacity: this.animVal.interpolate({
+                inputRange: [0, 1],
+                outputRange: [0, MODAL_BACKDROP_OPACITY],
+            }),
+        };
+        const contentAnimatedStyle = {
+            transform: [
+                {
+                    translateY: this.animVal.interpolate({
+                        inputRange: [0, 1],
+                        outputRange: [deviceHeight, 0],
+                        extrapolate: "clamp",
+                    }),
+                },
+            ],
+        };
+        return (
+            <ReactNativeModal
+                transparent
+                animationType="none"
+                visible={isVisible}
+                {...otherProps}
+            >
+                <TouchableWithoutFeedback onPress={onBackdropPress}>
+                    <Animated.View
+                        style={[
+                            styles.backdrop,
+                            backdropAnimatedStyle,
+                            { width: deviceWidth, height: deviceHeight },
+                        ]}
+                    />
+                </TouchableWithoutFeedback>
+                {isVisible && (
+                    <Animated.View
+                        style={[styles.content, contentAnimatedStyle, contentStyle]}
+                        pointerEvents="box-none"
+                    >
+                        {children}
+                    </Animated.View>
+                )}
+            </ReactNativeModal>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
