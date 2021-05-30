@@ -23,21 +23,19 @@ const DateTimePickerExample = () => {
     };
 
     return (
-        <View>
-            <SelectPicker
-                selectedValue={isDatePickerVisible}
-                onValueChange={handleConfirm}
-                data-testid="selectpicker"
-            >
-                {(Array.isArray(items) && items.length > 0) &&
-                    items.map((item, index) => {
-                        return (
-                            <Text key={index}>{item.label}</Text>
-                        )
-                    })
-                }
-            </SelectPicker>
-        </View>
+        <SelectPicker
+            selectedValue={isDatePickerVisible}
+            onValueChange={handleConfirm}
+            data-testid="selectpicker"
+        >
+            {(Array.isArray(items) && items.length > 0) &&
+                items.map((item, index) => {
+                    return (
+                        <Text key={index}>{item.label}</Text>
+                    )
+                })
+            }
+        </SelectPicker>
     )
 }
 

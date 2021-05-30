@@ -6,6 +6,13 @@ import styled from 'styled-components';
 
 const SelectPickerContainer = styled.div`
     height: 238px;
+
+    display: block;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    flex: 1;
+    text-align: center;
 `;
 
 const SelectPickerMask = styled.div`
@@ -20,6 +27,40 @@ const SelectPickerMask = styled.div`
     background-position: top, bottom;
     background-size: 100% 204px;
     background-repeat: no-repeat;
+`;
+
+const SelectPickerIndicator = styled.div`
+    box-sizing: border-box;
+    width: 100%;
+    height: 34px;
+    position: absolute;
+    left: 0;
+    top: 102px;
+    z-index: 3;
+    border-top: 1PX solid #ddd;
+    border-bottom: 1PX solid #ddd;
+`;
+
+const SelectPickerContent = styled.div`
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+`;
+
+const SelectPickerContentItem = styled.div`
+    font-size: 16px;
+    height: 34px;
+    line-height: 34px;
+    padding: 0 10px;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #9b9b9b;
+    width: 100%;
+    box-sizing: border-box;
 `;
 
 export interface IPickerProp {
@@ -333,13 +374,13 @@ class Picker extends React.Component<IPickerProp & IPickerProps, any> {
         const map = (item: any) => {
             const { className = '', style, value } = item.props;
             return (
-                <div
+                <SelectPickerContentItem
                     style={{ ...itemStyle, ...style }}
                     className={`${selectedValue === value ? selectedItemClassName : itemClassName} ${className}`}
                     key={value}
                 >
                     {item.children || item.props.children}
-                </div>
+                </SelectPickerContentItem>
             );
         };
         // compatibility for preact
@@ -357,14 +398,17 @@ class Picker extends React.Component<IPickerProp & IPickerProps, any> {
                 data-testid="selectpicker_container"
             >
                 <SelectPickerMask className={`${prefixCls}-mask`} ref={el => this.maskRef = el} />
-                <div
+                <SelectPickerIndicator
                     // className={`${prefixCls}-indicator ${indicatorClassName}`}
                     ref={el => this.indicatorRef = el}
                     style={indicatorStyle}
                 />
-                <div className={`${prefixCls}-content`} ref={el => this.contentRef = el}>
+                <SelectPickerContent 
+                    // className={`${prefixCls}-content`} 
+                    ref={el => this.contentRef = el}
+                >
                     {items}
-                </div>
+                </SelectPickerContent>
             </SelectPickerContainer>
         );
     }

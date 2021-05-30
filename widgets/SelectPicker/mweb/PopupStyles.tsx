@@ -8,6 +8,7 @@ const textStyle = {
 
 const styles = StyleSheet.create<any>({
     modal: {
+        display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-end',
     },

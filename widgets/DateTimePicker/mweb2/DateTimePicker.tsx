@@ -29,6 +29,7 @@ const YEAR = 'year';
 const ONE_DAY = 24 * 60 * 60 * 1000;
 
 class DatePicker extends React.Component<IDatePickerProps, any> {
+
     static defaultProps = {
         prefixCls: 'rmc-date-picker',
         pickerPrefixCls: 'rmc-picker',
@@ -466,6 +467,7 @@ class DatePicker extends React.Component<IDatePickerProps, any> {
             disabled, pickerPrefixCls, prefixCls, rootNativeProps, className, style, itemStyle,
         } = this.props;
         const multiStyle = {
+            display: "flex",
             flexDirection: 'row',
             alignItems: 'center',
             ...style,
