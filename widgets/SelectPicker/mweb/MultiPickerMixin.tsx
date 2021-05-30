@@ -1,12 +1,14 @@
-import * as React from 'react';
-import MultiPickerProps from './MultiPickerProps';
+import * as React from "react";
+import MultiPickerProps from "./MultiPickerProps";
 
 export default function (ComposedComponent) {
 
     return class extends React.Component<MultiPickerProps, any> {
+
         static defaultProps = {
-            prefixCls: 'rmc-multi-picker',
-            onValueChange() {
+            prefixCls: "rmc-multi-picker",
+            onValueChange: () => {
+                // do something
             },
         };
 
@@ -52,4 +54,4 @@ export default function (ComposedComponent) {
             );
         }
     };
-};
+}

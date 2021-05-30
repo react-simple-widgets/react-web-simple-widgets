@@ -1,12 +1,12 @@
 /* tslint:disable:no-console */
-import * as React from 'react';
-import { IPickerProps } from './PickerTypes';
+import * as React from "react";
+import { IPickerProps } from "./PickerTypes";
 
 export interface IItemProps {
     className?: string;
     value: any;
     children?: React.ReactNode;
-};
+}
 
 const Item = (_props: IItemProps) => null;
 
@@ -44,7 +44,7 @@ export default function (ComposedComponent) {
             if (child) {
                 fireValueChange(child.props.value);
             } else if (console.warn) {
-                console.warn('child not found', children, index);
+                console.warn("child not found", children, index);
             }
         }
 

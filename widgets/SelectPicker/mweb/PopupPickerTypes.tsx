@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 export interface IPopupPickerProps {
     picker?: any;
@@ -28,4 +28,4 @@ export interface IPopupPickerProps {
     transitionName?: string;
     popupTransitionName?: string;
     maskTransitionName?: string;
-};
+}

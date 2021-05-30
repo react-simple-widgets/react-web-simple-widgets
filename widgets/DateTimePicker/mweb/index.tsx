@@ -1,7 +1,7 @@
-import * as React from 'react';
-import DatePicker from './DatePicker';
-import Modal from '../Modal';
-import { defaultProps } from './utils/dataSource';
+import * as React from "react";
+import DatePicker from "./DatePicker";
+import Modal from "../Modal";
+import { defaultProps } from "./utils/dataSource";
 
 type EnhanceDatePickerProps = {
     isOpen?: boolean,
@@ -17,7 +17,7 @@ function EnhanceDatePicker({ isOpen, ...props }: EnhanceDatePickerProps) {
 
     return (
         <div
-            style={{ display: isOpen ? '' : 'none' }}
+            style={{ display: isOpen ? "" : "none" }}
             onClick={onModalClose}
             className="datepicker-modal"
         >
@@ -44,7 +44,7 @@ function ModalDatePicker({ isPopup, ...props }: ModalDatePickerProps) {
     );
 }
 
-ModalDatePicker.displayName = 'MobileDatePicker';
+ModalDatePicker.displayName = "MobileDatePicker";
 ModalDatePicker.defaultProps = defaultProps;
 
 export default ModalDatePicker;

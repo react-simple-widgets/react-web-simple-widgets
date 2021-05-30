@@ -1,26 +1,26 @@
-import * as React from 'react';
-import DatePickerItem from './DatePickerItem';
-import PureRender from './utils/pureRender';
-import { convertDate, nextDate } from './utils/time';
+import * as React from "react";
+import DatePickerItem from "./DatePickerItem";
+import PureRender from "./utils/pureRender";
+import { convertDate, nextDate } from "./utils/time";
 import {
     dateConfigMap,
     headerFormatWithMode,
     mode,
-} from './utils/dataSource';
-import { isEmpty } from './utils/prefix';
+} from "./utils/dataSource";
+import { isEmpty } from "./utils/prefix";
 
 /**
  * Uppercase first letter
  * @param {String} String
  */
-const capitalize = ([first, ...rest]) => first.toUpperCase() + rest.join('');
+const capitalize = ([first, ...rest]) => first.toUpperCase() + rest.join("");
 
 /**
  * Judgment array
  * @param {any} val
  */
 const isArray = val =>
-    Object.prototype.toString.apply(val) === '[object Array]';
+    Object.prototype.toString.apply(val) === "[object Array]";
 
 type Props = {
     theme?: string,
@@ -133,7 +133,7 @@ class DatePicker extends React.Component<Props, State> {
         if (isArray(dataConfig)) {
             for (let i = 0; i < dataConfig.length; i++) {
                 const value = dataConfig[i];
-                if (typeof value === 'string') {
+                if (typeof value === "string") {
                     const lowerCaseKey = value.toLocaleLowerCase();
                     configList.push({
                         ...dateConfigMap[lowerCaseKey],
@@ -162,12 +162,12 @@ class DatePicker extends React.Component<Props, State> {
     }
 
     checkMode(modeName) {
-        if (!modeName || modeName === '') return mode.date;
+        if (!modeName || modeName === "") return mode.date;
         return mode[modeName];
     }
 
     checkHeaderFormat(modeName) {
-        if (!modeName || modeName === '') {
+        if (!modeName || modeName === "") {
             return headerFormatWithMode.date;
         }
         return headerFormatWithMode[modeName];
@@ -193,9 +193,9 @@ class DatePicker extends React.Component<Props, State> {
         } = this.props;
         const value = this.state.value;
         const themeClassName =
-            ['default', 'dark', 'ios', 'android', 'android-dark'].indexOf(theme) ===
+            ["default", "dark", "ios", "android", "android-dark"].indexOf(theme) ===
                 -1
-                ? 'default'
+                ? "default"
                 : theme;
 
         let dataConfigList = null;
@@ -206,8 +206,8 @@ class DatePicker extends React.Component<Props, State> {
             dataConfigList = this.normalizeDateConfig(this.checkMode(mode));
         }
         // handle header with current mode
-        let _headerFormat = '';
-        if (!headerFormat && headerFormat === '') {
+        let _headerFormat = "";
+        if (!headerFormat && headerFormat === "") {
             _headerFormat = this.checkHeaderFormat(mode);
         }
 

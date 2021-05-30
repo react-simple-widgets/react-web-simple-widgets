@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { Modal } from 'react-native';
-import PopupMixin from './PopupMixin';
+import * as React from "react";
+import { Modal } from "react-native";
+import PopupMixin from "./PopupMixin";
 // import Touchable from 'rmc-feedback';
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const SelectPickerPopupHeader = styled.div`
     background-image: -webkit-linear-gradient(top, #e7e7e7, #e7e7e7, transparent, transparent);
@@ -39,15 +39,15 @@ const getModal = (props, visible, { getContent, hide, onDismiss, onOk }) => {
             <div>
                 <SelectPickerPopupHeader className={`${prefixCls}-header`}>
                     {/* <Touchable activeClassName={`${prefixCls}-item-active`}> */}
-                        <div className={`${prefixCls}-item ${prefixCls}-header-left`} onClick={onDismiss}>
-                            {props.dismissText}
-                        </div>
+                    <div className={`${prefixCls}-item ${prefixCls}-header-left`} onClick={onDismiss}>
+                        {props.dismissText}
+                    </div>
                     {/* </Touchable> */}
                     <div className={`${prefixCls}-item ${prefixCls}-title`}>{props.title}</div>
                     {/* <Touchable activeClassName={`${prefixCls}-item-active`}> */}
-                        <div className={`${prefixCls}-item ${prefixCls}-header-right`} onClick={onOk}>
-                            {props.okText}
-                        </div>
+                    <div className={`${prefixCls}-item ${prefixCls}-header-right`} onClick={onOk}>
+                        {props.okText}
+                    </div>
                     {/* </Touchable> */}
                 </SelectPickerPopupHeader>
                 {getContent()}
@@ -57,9 +57,9 @@ const getModal = (props, visible, { getContent, hide, onDismiss, onOk }) => {
 };
 
 export default PopupMixin(getModal, {
-    prefixCls: 'rmc-picker-popup',
-    WrapComponent: 'span',
-    triggerType: 'onClick',
-    pickerValueProp: 'selectedValue',
-    pickerValueChangeProp: 'onValueChange',
+    prefixCls: "rmc-picker-popup",
+    WrapComponent: "span",
+    triggerType: "onClick",
+    pickerValueProp: "selectedValue",
+    pickerValueChangeProp: "onValueChange",
 });

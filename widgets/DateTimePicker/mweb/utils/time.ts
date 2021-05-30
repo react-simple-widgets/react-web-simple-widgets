@@ -2,23 +2,23 @@
  * @module time
  */
 const monthNames = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
 ];
 
 function throwIfInvalidDate(date) {
-    if (Object.prototype.toString.call(date, null) !== '[object Date]') {
-        throw new Error('The parameter type is incorrect');
+    if (Object.prototype.toString.call(date, null) !== "[object Date]") {
+        throw new Error("The parameter type is incorrect");
     }
 }
 
@@ -34,11 +34,11 @@ function daysInMonth(year, month) {
 export function convertDate(date, format) {
     let str = format;
     const o = {
-        'M+': date.getMonth() + 1,
-        'D+': date.getDate(),
-        'h+': date.getHours(),
-        'm+': date.getMinutes(),
-        's+': date.getSeconds(),
+        "M+": date.getMonth() + 1,
+        "D+": date.getDate(),
+        "h+": date.getHours(),
+        "m+": date.getMinutes(),
+        "s+": date.getSeconds(),
     };
     if (/(Y+)/.test(format)) {
         str = str.replace(
@@ -53,7 +53,7 @@ export function convertDate(date, format) {
     for (const k in o) {
         // eslint-disable-line
         if (new RegExp(`(${k})`).test(format)) {
-            if (format === 'MMM') {
+            if (format === "MMM") {
                 str = monthNames[o[k] - 1];
             } else {
                 str = str.replace(

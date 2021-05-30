@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import {
     nextYear,
     nextMonth,
@@ -7,18 +7,18 @@ import {
     nextMinute,
     nextSecond,
     convertDate,
-} from './utils/time';
-import { shallowEqual } from './utils/pureRender';
-import { addPrefixCss, formatCss } from './utils/prefix';
+} from "./utils/time";
+import { shallowEqual } from "./utils/pureRender";
+import { addPrefixCss, formatCss } from "./utils/prefix";
 
 const DATE_HEIGHT = 40; // height of a date
 const DATE_LENGTH = 10; // number of days
 const MIDDLE_INDEX = Math.floor(DATE_LENGTH / 2); // Index of the middle value of the date array
 const MIDDLE_Y = -DATE_HEIGHT * MIDDLE_INDEX; // translateY值 value
 
-const isUndefined = val => typeof val === 'undefined';
+const isUndefined = val => typeof val === "undefined";
 const isFunction = val =>
-    Object.prototype.toString.apply(val) === '[object Function]';
+    Object.prototype.toString.apply(val) === "[object Function]";
 
 const TimeUtil = {
     nextYear,
@@ -86,10 +86,10 @@ class DatePickerItem extends React.Component<Props, State> {
 
     componentDidMount() {
         const viewport = this.viewport;
-        viewport.addEventListener('touchstart', this.handleContentTouch, false);
-        viewport.addEventListener('touchmove', this.handleContentTouch, false);
-        viewport.addEventListener('touchend', this.handleContentTouch, false);
-        viewport.addEventListener('mousedown', this.handleContentMouseDown, false);
+        viewport.addEventListener("touchstart", this.handleContentTouch, false);
+        viewport.addEventListener("touchmove", this.handleContentTouch, false);
+        viewport.addEventListener("touchend", this.handleContentTouch, false);
+        viewport.addEventListener("mousedown", this.handleContentMouseDown, false);
     }
 
     UNSAFE_componentWillReceiveProps(nextProps) {
@@ -121,11 +121,11 @@ class DatePickerItem extends React.Component<Props, State> {
 
     componentWillUnmount() {
         const viewport = this.viewport;
-        viewport.removeEventListener('touchstart', this.handleContentTouch, false);
-        viewport.removeEventListener('touchmove', this.handleContentTouch, false);
-        viewport.removeEventListener('touchend', this.handleContentTouch, false);
+        viewport.removeEventListener("touchstart", this.handleContentTouch, false);
+        viewport.removeEventListener("touchmove", this.handleContentTouch, false);
+        viewport.removeEventListener("touchend", this.handleContentTouch, false);
         viewport.removeEventListener(
-            'mousedown',
+            "mousedown",
             this.handleContentMouseDown,
             false
         );
@@ -180,7 +180,7 @@ class DatePickerItem extends React.Component<Props, State> {
      * @return {undefined}
      */
     _clearTransition(obj) {
-        addPrefixCss(obj, { transition: '' });
+        addPrefixCss(obj, { transition: "" });
     }
 
     /**
@@ -283,11 +283,11 @@ class DatePickerItem extends React.Component<Props, State> {
     handleContentTouch(event) {
         event.preventDefault();
         if (this.animating) return;
-        if (event.type === 'touchstart') {
+        if (event.type === "touchstart") {
             this.handleStart(event);
-        } else if (event.type === 'touchmove') {
+        } else if (event.type === "touchmove") {
             this.handleMove(event);
-        } else if (event.type === 'touchend') {
+        } else if (event.type === "touchend") {
             this.handleEnd(event);
         }
     }
@@ -300,8 +300,8 @@ class DatePickerItem extends React.Component<Props, State> {
     handleContentMouseDown(event) {
         if (this.animating) return;
         this.handleStart(event);
-        document.addEventListener('mousemove', this.handleContentMouseMove);
-        document.addEventListener('mouseup', this.handleContentMouseUp);
+        document.addEventListener("mousemove", this.handleContentMouseMove);
+        document.addEventListener("mouseup", this.handleContentMouseUp);
     }
 
     handleContentMouseMove(event) {
@@ -312,8 +312,8 @@ class DatePickerItem extends React.Component<Props, State> {
     handleContentMouseUp(event) {
         if (this.animating) return;
         this.handleEnd(event);
-        document.removeEventListener('mousemove', this.handleContentMouseMove);
-        document.removeEventListener('mouseup', this.handleContentMouseUp);
+        document.removeEventListener("mousemove", this.handleContentMouseMove);
+        document.removeEventListener("mouseup", this.handleContentMouseUp);
     }
 
     /**
@@ -323,7 +323,7 @@ class DatePickerItem extends React.Component<Props, State> {
      */
     renderDatepickerItem(date, index) {
         const className =
-            date < this.props.min || date > this.props.max ? 'disabled' : '';
+            date < this.props.min || date > this.props.max ? "disabled" : "";
 
         let formatDate;
         if (isFunction(this.props.format)) {

@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { View } from 'react-native';
-import MultiPickerProps from './MultiPickerProps';
-import MultiPickerMixin from './MultiPickerMixin';
+import * as React from "react";
+import { View } from "react-native";
+import MultiPickerProps from "./MultiPickerProps";
+import MultiPickerMixin from "./MultiPickerMixin";
 
 export interface IMultiPickerProp {
     getValue: () => any;

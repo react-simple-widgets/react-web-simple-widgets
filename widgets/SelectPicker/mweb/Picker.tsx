@@ -1,8 +1,8 @@
-import * as React from 'react';
+import * as React from "react";
 // import classNames from 'classnames';
-import { IPickerProps } from './PickerTypes';
-import PickerMixin from './PickerMixin';
-import styled from 'styled-components';
+import { IPickerProps } from "./PickerTypes";
+import PickerMixin from "./PickerMixin";
+import styled from "styled-components";
 
 const SelectPickerContainer = styled.div`
     height: 238px;
@@ -67,11 +67,11 @@ export interface IPickerProp {
     select: (...arg) => void;
     doScrollingComplete: (...arg) => void;
     computeChildIndex: (...arg) => number;
-};
+}
 
 class Picker extends React.Component<IPickerProp & IPickerProps, any> {
     static defaultProps = {
-        prefixCls: 'rmc-picker',
+        prefixCls: "rmc-picker",
     };
 
     rootRef: any;
@@ -108,7 +108,7 @@ class Picker extends React.Component<IPickerProp & IPickerProps, any> {
                 setTimeout(() => {
                     this.scrollingComplete();
                     if (this.contentRef) {
-                        setTransition(this.contentRef.style, '');
+                        setTransition(this.contentRef.style, "");
                     }
                 }, +time * 1000);
             }
@@ -206,7 +206,7 @@ class Picker extends React.Component<IPickerProp & IPickerProps, any> {
                 return scrollY;
             },
             scrollTo,
-            setDisabled: (disabled: boolean = false) => {
+            setDisabled: (disabled = false) => {
                 scrollDisabled = disabled;
             },
         };
@@ -251,8 +251,8 @@ class Picker extends React.Component<IPickerProp & IPickerProps, any> {
         const willPreventDefault = passiveSupported ? { passive: false } : false;
         const willNotPreventDefault = passiveSupported ? { passive: true } : false;
         Object.keys(this.scrollHanders).forEach(key => {
-            if (key.indexOf('touch') === 0 || key.indexOf('mouse') === 0) {
-                const pd = key.indexOf('move') >= 0 ? willPreventDefault : willNotPreventDefault;
+            if (key.indexOf("touch") === 0 || key.indexOf("mouse") === 0) {
+                const pd = key.indexOf("move") >= 0 ? willPreventDefault : willNotPreventDefault;
                 (rootRef as HTMLDivElement).addEventListener(key, this.scrollHanders[key], pd as any);
             }
         });
@@ -260,7 +260,7 @@ class Picker extends React.Component<IPickerProp & IPickerProps, any> {
 
     componentWillUnmount() {
         Object.keys(this.scrollHanders).forEach(key => {
-            if (key.indexOf('touch') === 0 || key.indexOf('mouse') === 0) {
+            if (key.indexOf("touch") === 0 || key.indexOf("mouse") === 0) {
                 (this.rootRef as HTMLDivElement).removeEventListener(key, this.scrollHanders[key]);
             }
         });
@@ -270,18 +270,20 @@ class Picker extends React.Component<IPickerProp & IPickerProps, any> {
         let passiveSupported = false;
 
         try {
-            const options = Object.defineProperty({}, 'passive', {
+            const options = Object.defineProperty({}, "passive", {
                 get: () => {
                     passiveSupported = true;
                 },
             });
-            window.addEventListener('test', null as any, options);
-        } catch (err) { }
+            window.addEventListener("test", null as any, options);
+        } catch (err) { 
+            // do something
+        }
         return passiveSupported;
     }
 
-    componentWillReceiveProps(nextProps: IPickerProp & IPickerProps) {
-        if ('selectedValue' in nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps: IPickerProp & IPickerProps) {
+        if ("selectedValue" in nextProps) {
             if (this.state.selectedValue !== nextProps.selectedValue) {
                 this.setState({
                     selectedValue: nextProps.selectedValue,
@@ -316,7 +318,7 @@ class Picker extends React.Component<IPickerProp & IPickerProps, any> {
 
     fireValueChange = (selectedValue) => {
         if (selectedValue !== this.state.selectedValue) {
-            if (!('selectedValue' in this.props)) {
+            if (!("selectedValue" in this.props)) {
                 this.setState({
                     selectedValue,
                 });
@@ -338,7 +340,7 @@ class Picker extends React.Component<IPickerProp & IPickerProps, any> {
                 if (child && this.props.onScrollChange) {
                     this.props.onScrollChange(child.props.value);
                 } else if (!child && console.warn) {
-                    console.warn('child not found', children, index);
+                    console.warn("child not found", children, index);
                 }
             }
         }
@@ -352,7 +354,7 @@ class Picker extends React.Component<IPickerProp & IPickerProps, any> {
     }
 
     getValue() {
-        if ('selectedValue' in this.props) {
+        if ("selectedValue" in this.props) {
             return this.props.selectedValue;
         }
         const children: any = React.Children.toArray(this.props.children);
@@ -365,14 +367,14 @@ class Picker extends React.Component<IPickerProp & IPickerProps, any> {
             prefixCls,
             itemStyle,
             indicatorStyle,
-            indicatorClassName = '',
+            indicatorClassName = "",
             children,
         } = props;
         const { selectedValue } = this.state;
         const itemClassName = `${prefixCls}-item`;
         const selectedItemClassName = `${itemClassName} ${prefixCls}-item-selected`;
         const map = (item: any) => {
-            const { className = '', style, value } = item.props;
+            const { className = "", style, value } = item.props;
             return (
                 <SelectPickerContentItem
                     style={{ ...itemStyle, ...style }}

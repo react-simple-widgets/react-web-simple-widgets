@@ -1,15 +1,22 @@
-import * as React from 'react';
-import { IPopupPickerProps } from './PopupPickerTypes';
+import * as React from "react";
+import { IPopupPickerProps } from "./PopupPickerTypes";
 
 export default function PopupMixin(getModal, platformProps) {
     return class extends React.Component<IPopupPickerProps, any> {
+
         static defaultProps = {
-            onVisibleChange(_) { },
-            okText: 'Ok',
-            dismissText: 'Dismiss',
-            title: '',
-            onOk(_) { },
-            onDismiss() { },
+            onVisibleChange: () => {
+                // do something
+            },
+            okText: "Ok",
+            dismissText: "Dismiss",
+            title: "",
+            onOk: () => {
+                // do something
+            },
+            onDismiss: () => {
+                // do something
+            },
             ...platformProps,
         };
 
@@ -19,18 +26,18 @@ export default function PopupMixin(getModal, platformProps) {
             super(props);
 
             this.state = {
-                pickerValue: 'value' in this.props ? this.props.value : null,
+                pickerValue: "value" in this.props ? this.props.value : null,
                 visible: this.props.visible || false,
             };
         }
 
-        componentWillReceiveProps(nextProps) {
-            if ('value' in nextProps) {
+        UNSAFE_componentWillReceiveProps(nextProps) {
+            if ("value" in nextProps) {
                 this.setState({
                     pickerValue: nextProps.value,
                 });
             }
-            if ('visible' in nextProps) {
+            if ("visible" in nextProps) {
                 this.setVisibleState(nextProps.visible);
             }
         }
@@ -64,7 +71,7 @@ export default function PopupMixin(getModal, platformProps) {
 
         fireVisibleChange(visible) {
             if (this.state.visible !== visible) {
-                if (!('visible' in this.props)) {
+                if (!("visible" in this.props)) {
                     this.setVisibleState(visible);
                 }
                 this.props.onVisibleChange!(visible);

@@ -1,15 +1,15 @@
-import * as React from 'react';
-import { ScrollView, View, StyleSheet, PixelRatio, Text } from 'react-native';
-import PickerMixin from './PickerMixin';
-import { IPickerProps } from './PickerTypes';
+import * as React from "react";
+import { ScrollView, View, StyleSheet, PixelRatio, Text } from "react-native";
+import PickerMixin from "./PickerMixin";
+import { IPickerProps } from "./PickerTypes";
 
 const ratio = PixelRatio.get();
 const styles = StyleSheet.create({
     indicator: {
-        position: 'absolute',
+        position: "absolute",
         left: 0,
         top: -99,
-        borderColor: '#aaa',
+        borderColor: "#aaa",
         borderTopWidth: 1 / ratio,
         borderBottomWidth: 1 / ratio,
     } as any,
@@ -20,14 +20,14 @@ const styles = StyleSheet.create({
 
     selectedItemText: {
         fontSize: 20,
-        fontWeight: 'bold',
-        color: '#000',
+        fontWeight: "bold",
+        color: "#000",
     } as any,
 
     itemText: {
         fontSize: 20,
-        color: '#aaa',
-        textAlign: 'center',
+        color: "#aaa",
+        textAlign: "center",
     } as any,
 });
 

@@ -12,4 +12,4 @@ export interface IPickerProps {
     style?: any;
     onScrollChange?: (value: any) => void;
     noAnimate?: boolean;
-};
+}

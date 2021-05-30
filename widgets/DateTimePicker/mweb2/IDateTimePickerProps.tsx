@@ -21,10 +21,10 @@ interface IDatePickerProps {
     prefixCls?: string;
     /** web only */
     onScrollChange?: (date: any, vals: any, index: number) => void;
-    rootNativeProps?: {};
+    rootNativeProps?: Record<string, any>;
     pickerPrefixCls?: string;
     className?: string;
     use12Hours?: boolean;
   }
 
-  export default IDatePickerProps;
+export default IDatePickerProps;

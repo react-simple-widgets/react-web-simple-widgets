@@ -1,7 +1,7 @@
 export function camelCase(str) {
     return str
         .replace(/-([a-z])/g, ($0, $1) => $1.toUpperCase())
-        .replace('-', '');
+        .replace("-", "");
 }
 
 /**
@@ -10,7 +10,7 @@ export function camelCase(str) {
  * @return {Object}       Prefixed formatting attribute object
  */
 export function formatCss(props) {
-    const prefixs = ['-webkit-', '-moz-', '-ms-'];
+    const prefixs = ["-webkit-", "-moz-", "-ms-"];
 
     const result = {};
 

@@ -1,7 +1,7 @@
-import * as React from 'react';
+import * as React from "react";
 // import classnames from 'classnames';
-import MultiPickerProps from './MultiPickerProps';
-import MultiPickerMixin from './MultiPickerMixin';
+import MultiPickerProps from "./MultiPickerProps";
+import MultiPickerMixin from "./MultiPickerMixin";
 
 export interface IMultiPickerProp {
     getValue: () => any;

@@ -1,7 +1,7 @@
-import * as React from 'react';
-import IDatePickerProps from './IDateTimePickerProps';
-import PopupPicker from '../../SelectPicker/mweb/Popup';
-import { IPopupPickerProps } from '../../SelectPicker/mweb/PopupPickerTypes';
+import * as React from "react";
+import IDatePickerProps from "./IDateTimePickerProps";
+import PopupPicker from "../../SelectPicker/mweb/Popup";
+import { IPopupPickerProps } from "../../SelectPicker/mweb/PopupPickerTypes";
 
 export interface IPopupDatePickerProps extends IPopupPickerProps {
     datePicker: React.ReactElement<IDatePickerProps>;
@@ -12,8 +12,8 @@ export interface IPopupDatePickerProps extends IPopupPickerProps {
 class PopupDatePicker extends React.Component<IPopupDatePickerProps, any> {
 
     static defaultProps = {
-        pickerValueProp: 'date',
-        pickerValueChangeProp: 'onDateChange',
+        pickerValueProp: "date",
+        pickerValueChangeProp: "onDateChange",
     };
 
     onOk = (v) => {
