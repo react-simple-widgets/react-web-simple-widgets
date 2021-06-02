@@ -70,7 +70,7 @@ class ViewportVisibilitySensor extends React.Component<Props, State> {
         if (this.lastValue !== isVisible) {
             this.lastValue = isVisible;
 
-            console.log("Top ", this.state.rectTop, " Prev top ", this.state.prevRectTop);
+            // console.log("Top ", this.state.rectTop, " Prev top ", this.state.prevRectTop);
             this.props.onChange(isVisible, {
                 direction: this.state.rectTop > this.state.prevRectTop ? -1 : 1,
             });
