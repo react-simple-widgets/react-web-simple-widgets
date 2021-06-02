@@ -367,7 +367,7 @@ class Picker extends React.Component<IPickerProp & IPickerProps, any> {
             prefixCls,
             itemStyle,
             indicatorStyle,
-            indicatorClassName = "",
+            // indicatorClassName = "",
             children,
         } = props;
         const { selectedValue } = this.state;
