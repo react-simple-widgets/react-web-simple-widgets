@@ -12473,10 +12473,10 @@ react-native-screens@^2.17.1:
   resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-2.17.1.tgz#c3c0ac750af48741c5b1635511e6af2a27b74309"
   integrity sha512-B4gD5e4csvlVwlhf+RNqjQZ9mHTwe/iL3rXondgZxnKz4oW0QAmtLnLRKOrYVxoaJaF9Fy7jhjo//24/472APQ==
 
-react-native-styled-paper@1.3.0-develop.4:
-  version "1.3.0-develop.4"
-  resolved "https://registry.yarnpkg.com/react-native-styled-paper/-/react-native-styled-paper-1.3.0-develop.4.tgz#3a83c219e125abae6bd92975f1982e44cacbf918"
-  integrity sha512-M3R0XGZqSJ7Q/RUHTq6EqKDUO+8maCQlIB/QGdwcbwta+DalWC45NI6BVuGglDZoBw9t+1VFls23bnNPhEVb7Q==
+react-native-styled-paper@1.3.0-develop.5:
+  version "1.3.0-develop.5"
+  resolved "https://registry.yarnpkg.com/react-native-styled-paper/-/react-native-styled-paper-1.3.0-develop.5.tgz#74a7a9e06bb949c600a9acef113674889849fa95"
+  integrity sha512-Hc4P/bW+IY9YmTZllJqZ0Xyx+xbsW4Td3BmZwq/id/ivS3ynXUm0zWqplbSaRxgR4vklCkQOjO1ZtbmH7SQy0A==
   dependencies:
     color "3.1.2"
     immutable "^4.0.0-rc.12"
