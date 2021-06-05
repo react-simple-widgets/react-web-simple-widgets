@@ -2,7 +2,7 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import FullScreen, { useFullScreenHandle } from "react-native-styled-simple-widgets/widgets/Fullscreen";
 import { Text } from "react-native-styled-paper/components/Typography";
-import { Button } from "react-native-styled-paper/components";
+import Button from "react-native-styled-paper/components/Button";
 
 const FullscreenExample = (props) => {
 
