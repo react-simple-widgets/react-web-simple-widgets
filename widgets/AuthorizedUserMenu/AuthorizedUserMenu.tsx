@@ -1,0 +1,36 @@
+import * as React from "react";
+import MenuIcon from "@mdi/svg/svg/menu.svg";
+import Menu from "react-native-styled-paper/components/Menu";
+import ImageButton from "react-native-styled-paper/components/ImageButton";
+
+const AuthorizedUserMenu = (props) => {
+    const { loggedInUser } = props;
+    const [ isOpen, setIsOpen ] = React.useState(false);
+
+    const openMenu = () => {
+        setIsOpen(true);
+    };
+
+    const closeMenu = () => {
+        setIsOpen(false);
+    };
+
+    return (
+        <Menu
+            visible={isOpen}
+            onDismiss={closeMenu}
+            anchor={
+                <ImageButton
+                    source={MenuIcon} 
+                    onPress={openMenu} 
+                />
+            }
+        >
+            <Menu.Item title="Item 1" />
+            <Menu.Item title="Item 2" />
+            {loggedInUser?.accessToken && <Menu.Item title="Item 3" />}
+        </Menu>
+    );
+};
+
+export default AuthorizedUserMenu;
