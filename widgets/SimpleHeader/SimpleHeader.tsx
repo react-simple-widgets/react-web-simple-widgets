@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
+import useScrollbarSize from "react-scrollbar-size";
 import Appbar from "react-native-styled-paper/components/Appbar";
 import AuthorizedUserMenu from "../AuthorizedUserMenu";
 
@@ -24,6 +25,8 @@ export default function SimpleHeader(props: Props) {
         loggedInUser, 
     } = props;
 
+    const { width: scrollbarSize } = useScrollbarSize();
+
     const _handleBackActionPress = () => {
         if (typeof onBackButtonClick === "function") {
             onBackButtonClick();
@@ -31,7 +34,11 @@ export default function SimpleHeader(props: Props) {
     };
 
     return (
-        <HeaderContainer>
+        <HeaderContainer
+            style={{
+                marginRight: scrollbarSize || 0,
+            }}
+        >
             <Appbar.Header>
                 <Appbar.BackAction 
                     icon={backButtonIcon}

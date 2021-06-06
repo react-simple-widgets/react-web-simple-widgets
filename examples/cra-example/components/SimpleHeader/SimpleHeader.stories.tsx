@@ -1,8 +1,26 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { text, withKnobs } from "@storybook/addon-knobs";
-import SimpleHeader from "react-native-styled-simple-widgets/widgets/SimpleHeader";
+import { action } from "@storybook/addon-actions";
 import MenuIcon from "@mdi/svg/svg/menu.svg";
+import SimpleHeader from "react-native-styled-simple-widgets/widgets/SimpleHeader";
+import ScrollviewViewport from "react-native-styled-paper/components/Container/ScrollviewViewport";
+import { View, Text } from "react-native";
+
+const onBackButtonPress = action("onBackButtonClick");
+
+const items = [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+];
 
 const SimpleHeaderExample = (props) => {
     const title = text("title", "Title");
@@ -11,8 +29,25 @@ const SimpleHeaderExample = (props) => {
         <>
             <SimpleHeader
                 backButtonIcon={MenuIcon}
+                onBackButtonClick={onBackButtonPress}
                 title={title}
             />
+            <ScrollviewViewport>
+                {(Array.isArray(items) && items.length > 0) &&
+                    items.map((item, index) => {
+                        return (
+                            <View 
+                                key={index}
+                                style={{
+                                    height: 200,
+                                }}
+                            >
+                                <Text>{`Item ${index}`}</Text>
+                            </View>
+                        )
+                    })
+                }
+            </ScrollviewViewport>
         </>
     )
 }

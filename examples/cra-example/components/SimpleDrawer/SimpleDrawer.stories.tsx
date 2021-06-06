@@ -28,6 +28,7 @@ const SimpleDrawerExample = (props) => {
             <SimpleDrawer
                 items={items}
                 onItemPress={onItemPress}
+                drawerPaddingTop="0"
             />
         </>
     )
