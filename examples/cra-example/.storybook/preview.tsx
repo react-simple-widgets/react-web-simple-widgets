@@ -8,7 +8,7 @@ import { Viewport } from 'react-native-styled-paper/components/Container';
 const StoryBookUI = ({ children }) => (
     <PaperProviver theme={LightTheme}>
         <ToastProvider>
-            <Viewport testID="viewport" style={{ height: "100vh" }}>
+            <Viewport testID="viewport" style={{ height: "100vh", overflow: "hidden" }}>
                 {children}
             </Viewport>
         </ToastProvider>
