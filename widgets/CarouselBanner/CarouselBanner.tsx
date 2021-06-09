@@ -1,8 +1,8 @@
 import * as React from "react";
 import Carousel, { LeftArrow, RightArrow } from "react-native-styled-paper/components/Carousel";
 import Image from "react-native-styled-paper/components/Image/Image";
-import { Dimensions } from "react-native";
-import RatioBox from "widgets/RatioBox";
+import { useWindowDimensions } from "react-native";
+import RatioBox from "../RatioBox";
 
 const defaultRenderItem = (props) => {
 
@@ -30,7 +30,7 @@ const CarouselBanner = (props) => {
         data,
     } = props;
 
-    const { width: viewportWidth } = Dimensions.get("window");
+    const { width: viewportWidth } = useWindowDimensions();
     const sliderWidth = viewportWidth;
     // const sliderWidth = viewportWidth - 32;
 
@@ -44,8 +44,8 @@ const CarouselBanner = (props) => {
                 onPress={e => _imageCarouselRef.current?.snapToPrev()}
             />
             <Carousel
-                sliderWidth={sliderWidth}
-                itemWidth={sliderWidth}
+                sliderWidth={sliderWidth ?? 767}
+                itemWidth={sliderWidth ?? 767}
                 data={data}
                 renderItem={({ item, index }) => renderItem({ item, index })}
                 ref={_imageCarouselRef}
