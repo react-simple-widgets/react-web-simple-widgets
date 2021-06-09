@@ -13,16 +13,23 @@ type Props = {
     backButtonIcon?: React.ReactElement,
     onBackButtonClick?: () => void,
     loggedInUser?: Record<string, any>;
+    isUserIconCircle?: boolean,
     children?: React.ReactNode;
 };
 
-export default function SimpleHeader(props: Props) {
+const defaultProps = {
+    isUserIconCircle: true,
+};
+
+const SimpleHeader = (props: Props) => {
+
     const { 
         title, 
         backButtonIcon, 
         onBackButtonClick,
         children, 
-        loggedInUser, 
+        loggedInUser,
+        isUserIconCircle,
     } = props;
 
     const { width: scrollbarSize } = useScrollbarSize();
@@ -44,10 +51,19 @@ export default function SimpleHeader(props: Props) {
                     icon={backButtonIcon}
                     onPress={_handleBackActionPress} 
                 />
-                <Appbar.Content title={title}/>
+                <Appbar.Content 
+                    title={title}
+                />
                 {children}
-                <AuthorizedUserMenu loggedInUser={loggedInUser} />
+                <AuthorizedUserMenu 
+                    circle={isUserIconCircle}
+                    loggedInUser={loggedInUser} 
+                />
             </Appbar.Header>
         </HeaderContainer>
     );
-}
+};
+
+SimpleHeader.defaultProps = defaultProps;
+
+export default SimpleHeader;
