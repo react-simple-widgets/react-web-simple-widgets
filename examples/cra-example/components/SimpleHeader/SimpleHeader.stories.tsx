@@ -31,6 +31,10 @@ const SimpleHeaderExample = (props) => {
                 backButtonIcon={MenuIcon}
                 onBackButtonClick={onBackButtonPress}
                 title={title}
+                loggedInUser={{
+                    firstName: "Username",
+                    avatarUrl: "https://via.placeholder.com/350",
+                }}
             />
             <ScrollviewViewport>
                 {(Array.isArray(items) && items.length > 0) &&
