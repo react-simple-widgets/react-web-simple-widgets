@@ -20,6 +20,7 @@ const defaultRenderItem = (props) => {
 };
 
 type Props = {
+    containerRatio?: string,
     sliderWidth: number,
     itemWidth?: number,
     data: Record<string, any>[],
@@ -27,12 +28,14 @@ type Props = {
 }
 
 const defaultProps = {
+    containerRatio: "16x9",
     data: [],
 };
 
 const CarouselBanner = (props: Props) => {
 
     const {
+        containerRatio,
         sliderWidth,
         itemWidth,
         data,
@@ -43,7 +46,9 @@ const CarouselBanner = (props: Props) => {
     const renderItem = props.renderItem ?? defaultRenderItem;
 
     return (
-        <RatioBox>
+        <RatioBox
+            ratio={containerRatio}
+        >
             <LeftArrow
                 onPress={e => _imageCarouselRef.current?.snapToPrev()}
             />

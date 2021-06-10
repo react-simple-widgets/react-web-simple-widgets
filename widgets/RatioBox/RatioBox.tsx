@@ -2,6 +2,14 @@ import * as React from "react";
 import styled from "styled-components/native";
 import { compose, layout, LayoutProps, position, PositionProps, space, SpaceProps } from "styled-system";
 
+const SUPPORTED_RATIOS = {
+    "1x1": "100%",
+    "4x3": "75%",
+    "16x9": "56.25%",
+    "21x9": "42.857143%",
+    "36x9": "25%",
+};
+
 const StyledBox = styled.View<LayoutProps & SpaceProps & PositionProps>(compose(
     layout,
     space,
@@ -36,9 +44,19 @@ StyledBoxConttent.defaultProps = {
     left: "0",
 };
 
-const RatioBox = (props) => {
+type Props = {
+    ratio?: string,
+    children: React.ReactNode,
+}
+
+const defaultProps = {
+    ratio: "16x9",
+};
+
+const RatioBox = (props: Props) => {
 
     const {
+        ratio,
         children,
     } = props;
 
@@ -48,7 +66,7 @@ const RatioBox = (props) => {
             height={"auto"}
         >
             <StyledBoxHolder
-                paddingTop="56.25%"
+                paddingTop={SUPPORTED_RATIOS[ratio] ?? SUPPORTED_RATIOS["16x9"]}
                 testID="ratiobox_placeholder"
             />
             <StyledBoxConttent
@@ -59,5 +77,7 @@ const RatioBox = (props) => {
         </StyledBox>
     );
 };
+
+RatioBox.defaultProps = defaultProps;
 
 export default RatioBox;
