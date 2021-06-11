@@ -4,19 +4,19 @@ import HelperText from "react-native-styled-paper/components/HelperText";
 
 type Props = {
     value: string;
-    onChangeText: (text) => void;
+    onChange: (text) => void;
     errorMessage?: string;
     secureTextEntry?: boolean;
 };
 
 const ValidationTextInput = (props: Props) => {
-    const { value, onChangeText, errorMessage, secureTextEntry } = props;
+    const { value, onChange, errorMessage, secureTextEntry } = props;
 
     return (
         <>
             <TextInput
                 value={value}
-                onChangeText={onChangeText}
+                onChangeText={onChange}
                 secureTextEntry={secureTextEntry}
             />
             <HelperText type="error" visible={!!errorMessage}>
