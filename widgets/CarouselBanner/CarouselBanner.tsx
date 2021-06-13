@@ -42,6 +42,13 @@ const CarouselBanner = (props: Props) => {
     } = props;
 
     const _imageCarouselRef = React.createRef<Carousel>();
+    const [ isShowCarousel, setIsShowCarousel ] = React.useState(false);
+
+    React.useEffect(() => {
+        setTimeout(() => {
+            setIsShowCarousel(true);
+        }, 150);
+    }, []);
 
     const renderItem = props.renderItem ?? defaultRenderItem;
 
@@ -49,20 +56,24 @@ const CarouselBanner = (props: Props) => {
         <RatioBox
             ratio={containerRatio}
         >
-            <LeftArrow
-                onPress={e => _imageCarouselRef.current?.snapToPrev()}
-            />
-            <Carousel
-                sliderWidth={sliderWidth}
-                itemWidth={itemWidth ?? sliderWidth}
-                data={data}
-                renderItem={({ item, index }) => renderItem({ item, index })}
-                ref={_imageCarouselRef}
-                loop={true}
-            />
-            <RightArrow
-                onPress={e => _imageCarouselRef.current?.snapToNext()}
-            />
+            {isShowCarousel &&
+                <>
+                    <LeftArrow
+                        onPress={e => _imageCarouselRef.current?.snapToPrev()}
+                    />
+                    <Carousel
+                        sliderWidth={sliderWidth}
+                        itemWidth={itemWidth ?? sliderWidth}
+                        data={data}
+                        renderItem={({ item, index }) => renderItem({ item, index })}
+                        ref={_imageCarouselRef}
+                        loop={true}
+                    />
+                    <RightArrow
+                        onPress={e => _imageCarouselRef.current?.snapToNext()}
+                    />
+                </>
+            }
         </RatioBox>
     );
 };
