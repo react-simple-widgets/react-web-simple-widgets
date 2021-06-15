@@ -11,7 +11,7 @@
 # next.js
 /.next/
 /out/
-/react-native-styled-simple-widgets/
+/react-web-simple-widgets/
 
 # production
 /build

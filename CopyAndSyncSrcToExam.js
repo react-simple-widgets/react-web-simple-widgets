@@ -17,11 +17,11 @@ const copyDirSync = (srcFolders, rootSrc, rootDest, option = {}) => {
 
 const snapCoreFolders = [""];
 
-fs.ensureDirSync("./examples/nextjs-example/react-simple-widgets/widgets");
+fs.ensureDirSync("./examples/nextjs-example/react-web-simple-widgets/widgets");
 copyDirSync(
     snapCoreFolders,
     "./widgets",
-    "./examples/nextjs-example/react-simple-widgets/widgets",
+    "./examples/nextjs-example/react-web-simple-widgets/widgets",
     {
         filter: function(stat, filepath, filename) {
             // do not want copy .git directories
@@ -42,11 +42,11 @@ copyDirSync(
     }
 );
 
-fs.ensureDirSync("./examples/cra-example/react-simple-widgets/widgets");
+fs.ensureDirSync("./examples/cra-example/react-web-simple-widgets/widgets");
 copyDirSync(
     snapCoreFolders,
     "./widgets",
-    "./examples/cra-example/react-simple-widgets/widgets",
+    "./examples/cra-example/react-web-simple-widgets/widgets",
     {
         filter: function(stat, filepath, filename) {
             // do not want copy .git directories

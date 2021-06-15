@@ -1,7 +1,7 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { select, withKnobs } from "@storybook/addon-knobs";
-import RatioBox from "react-native-styled-simple-widgets/widgets/RatioBox";
+import RatioBox from "react-web-simple-widgets/widgets/RatioBox";
 import { Text } from "react-native-styled-paper/components/Typography";
 import { View } from "react-native";
 

@@ -1,8 +1,8 @@
 import * as React from "react";
 import { View, Button } from "react-native";
 import { storiesOf } from "@storybook/react";
-import DateTimePicker from "react-native-styled-simple-widgets/widgets/DateTimePicker/DateTimePicker";
-import DateTimePickerPopup from "react-native-styled-simple-widgets/widgets/DateTimePicker/mweb2/Popup";
+import DateTimePicker from "react-web-simple-widgets/widgets/DateTimePicker/DateTimePicker";
+import DateTimePickerPopup from "react-web-simple-widgets/widgets/DateTimePicker/mweb2/Popup";
 
 const DateTimePickerExample = () => {
 

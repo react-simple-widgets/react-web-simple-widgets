@@ -1,7 +1,7 @@
 import * as React from "react";
 import { View, Text } from "react-native";
 import { storiesOf } from "@storybook/react";
-import SelectPicker from "react-native-styled-simple-widgets/widgets/SelectPicker";
+import SelectPicker from "react-web-simple-widgets/widgets/SelectPicker";
 
 const items = [
     { label: "Item 0" },

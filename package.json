@@ -22,7 +22,7 @@
         "st-install": "yarn cra-example install",
         "st-build": "yarn cra-example build-storybook",
         "st-update": "yarn cra-example install",
-        "st-upgrade": "yarn cra-example upgrade react-simple-widgets",
+        "st-upgrade": "yarn cra-example upgrade react-web-simple-widgets",
         "st-build-all": "yarn copy:src-exam && yarn st-install && yarn st-upgrade && yarn st-build && rimraf ./docs && yarn copy:docs",
         "deploy": "gh-pages -d examples/cra-example/storybook-static",
         "release": "semantic-release",
@@ -31,15 +31,15 @@
         "lint": "eslint . --ext ts --ext tsx --ext js",
         "test": "jest --passWithNoTests"
     },
-    "homepage": "https://react-simple-widgets.github.io/react-simple-widgets",
+    "homepage": "https://react-web-simple-widgets.github.io/react-web-simple-widgets",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/react-simple-widgets/react-simple-widgets.git"
+        "url": "git+https://github.com/react-web-simple-widgets/react-web-simple-widgets.git"
     },
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/react-simple-widgets/react-simple-widgets/issues"
+        "url": "https://github.com/react-web-simple-widgets/react-web-simple-widgets/issues"
     },
     "devDependencies": {
         "@babel/cli": "^7.12.10",

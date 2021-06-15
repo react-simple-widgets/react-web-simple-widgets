@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import { text, withKnobs } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 import MenuIcon from "@mdi/svg/svg/menu.svg";
-import SimpleHeader from "react-native-styled-simple-widgets/widgets/SimpleHeader";
+import SimpleHeader from "react-web-simple-widgets/widgets/SimpleHeader";
 import ScrollviewViewport from "react-native-styled-paper/components/Container/ScrollviewViewport";
 import { View, Text } from "react-native";
 
