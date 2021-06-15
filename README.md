@@ -1,12 +1,12 @@
-# react-native-styled-simple-widgets
+# react-simple-widgets
 
-[Docs](https://react-native-styled-paper.github.io/react-native-styled-simple-widgets)
+[Docs](https://react-simple-widgets.github.io/react-simple-widgets)
 ## Get Started
 
 ### Installation
 ```shell
 npm install react-native-styled-paper
-npm install react-native-styled-simple-widgets
+npm install react-simple-widgets
 ```
 ### Usage
 

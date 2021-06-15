@@ -17,11 +17,11 @@ const copyDirSync = (srcFolders, rootSrc, rootDest, option = {}) => {
 
 const snapCoreFolders = [""];
 
-fs.ensureDirSync("./examples/nextjs-example/react-native-styled-simple-widgets/widgets");
+fs.ensureDirSync("./examples/nextjs-example/react-simple-widgets/widgets");
 copyDirSync(
     snapCoreFolders,
     "./widgets",
-    "./examples/nextjs-example/react-native-styled-simple-widgets/widgets",
+    "./examples/nextjs-example/react-simple-widgets/widgets",
     {
         filter: function(stat, filepath, filename) {
             // do not want copy .git directories
@@ -42,36 +42,11 @@ copyDirSync(
     }
 );
 
-fs.ensureDirSync("./examples/rn-example/react-native-styled-simple-widgets/widgets");
+fs.ensureDirSync("./examples/cra-example/react-simple-widgets/widgets");
 copyDirSync(
     snapCoreFolders,
     "./widgets",
-    "./examples/rn-example/react-native-styled-simple-widgets/widgets",
-    {
-        filter: function(stat, filepath, filename) {
-            // do not want copy .git directories
-            if (stat === "directory" && filename === "node_modules") {
-                return false;
-            }
-
-            if (stat === "directory" && filename === ".git") {
-                return false;
-            }
-
-            if (filename === "yarn.lock") {
-                return false;
-            }
-
-            return true; // remind to return a true value when file check passed.
-        },
-    }
-);
-
-fs.ensureDirSync("./examples/cra-example/react-native-styled-simple-widgets/widgets");
-copyDirSync(
-    snapCoreFolders,
-    "./widgets",
-    "./examples/cra-example/react-native-styled-simple-widgets/widgets",
+    "./examples/cra-example/react-simple-widgets/widgets",
     {
         filter: function(stat, filepath, filename) {
             // do not want copy .git directories
