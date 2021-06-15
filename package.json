@@ -1,5 +1,5 @@
 {
-    "name": "react-simple-widgets",
+    "name": "react-web-simple-widgets",
     "version": "1.0.0",
     "description": "",
     "main": "dist/components/index.ts",
