@@ -31,15 +31,15 @@
         "lint": "eslint . --ext ts --ext tsx --ext js",
         "test": "jest --passWithNoTests"
     },
-    "homepage": "https://react-web-simple-widgets.github.io/react-web-simple-widgets",
+    "homepage": "https://react-simple-widgets.github.io/react-web-simple-widgets",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/react-web-simple-widgets/react-web-simple-widgets.git"
+        "url": "git+https://github.com/react-simple-widgets/react-web-simple-widgets.git"
     },
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/react-web-simple-widgets/react-web-simple-widgets/issues"
+        "url": "https://github.com/react-simple-widgets/react-web-simple-widgets/issues"
     },
     "devDependencies": {
         "@babel/cli": "^7.12.10",

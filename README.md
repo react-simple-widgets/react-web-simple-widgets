@@ -1,6 +1,6 @@
 # react-web-simple-widgets
 
-[Docs](https://react-web-simple-widgets.github.io/react-web-simple-widgets)
+[Docs](https://react-simple-widgets.github.io/react-web-simple-widgets)
 ## Get Started
 
 ### Installation
