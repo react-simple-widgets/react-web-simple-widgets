@@ -2,8 +2,8 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import SimpleDrawer from "react-web-simple-widgets/widgets/SimpleDrawer";
-import { DrawerContext } from "react-native-styled-paper/components/Drawer";
-import Button from "react-native-styled-paper/components/Button";
+import { DrawerContext } from "react-native-simple-elements/components/Drawer";
+import Button from "react-native-simple-elements/components/Button";
 
 const onItemPress = action("onItemPress");
 

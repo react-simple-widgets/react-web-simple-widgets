@@ -1,9 +1,9 @@
 import React from 'react';
 import { addDecorator } from '@storybook/react';
-import PaperProviver from 'react-native-styled-paper/components/theme/Provider';
-import LightTheme from 'react-native-styled-paper/components/theme/LightTheme';
-import ToastProvider from 'react-native-styled-paper/components/Toast';
-import { Viewport } from 'react-native-styled-paper/components/Container';
+import PaperProviver from 'react-native-simple-elements/components/theme/Provider';
+import LightTheme from 'react-native-simple-elements/components/theme/LightTheme';
+import ToastProvider from 'react-native-simple-elements/components/Toast';
+import { Viewport } from 'react-native-simple-elements/components/Container';
 
 const StoryBookUI = ({ children }) => (
     <PaperProviver theme={LightTheme}>

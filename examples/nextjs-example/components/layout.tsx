@@ -6,9 +6,9 @@ import { compose, layout, LayoutProps, space, SpaceProps } from "styled-system";
 import { Header } from "widgets/Appbar";
 import { LeftNav } from "widgets/LeftNav";
 import { ProfileDropdown } from "widgets/ProfileDropdown";
-import { Viewport } from "react-native-styled-paper/components/Container";
-import useScrollInfo from "react-native-styled-paper/components/hooks/useScrollInfo";
-import ViewportBg from "react-native-styled-paper/components/Container/ViewportBg";
+import { Viewport } from "react-native-simple-elements/components/Container";
+import useScrollInfo from "react-native-simple-elements/components/hooks/useScrollInfo";
+import ViewportBg from "react-native-simple-elements/components/Container/ViewportBg";
 
 const PageContainer = styled.div<LayoutProps & SpaceProps>({
     position: "absolute",

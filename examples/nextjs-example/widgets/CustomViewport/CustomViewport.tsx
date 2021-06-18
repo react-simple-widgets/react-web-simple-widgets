@@ -1,4 +1,4 @@
-import { ScrollviewViewport } from "react-native-styled-paper/components/Container";
+import { ScrollviewViewport } from "react-native-simple-elements/components/Container";
 
 const CustomViewport = (props) => {
     const { children, ...rest } = props;

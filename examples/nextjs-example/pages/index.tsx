@@ -1,16 +1,16 @@
 import * as React from "react";
 import styled from "styled-components";
-import { Text } from "react-native-styled-paper/components/Typography";
-import * as Avatar from "react-native-styled-paper/components/Avatar";
+import { Text } from "react-native-simple-elements/components/Typography";
+import * as Avatar from "react-native-simple-elements/components/Avatar";
 import FolderIcon from "@mdi/svg/svg/folder.svg";
-import Button from "react-native-styled-paper/components/Button";
+import Button from "react-native-simple-elements/components/Button";
 import { useRouter } from "next/router";
 import Layout from "components/layout";
-import IconButton from "react-native-styled-paper/components/IconButton";
-import Image from "react-native-styled-paper/components/Image";
-import ImageButton from "react-native-styled-paper/components/ImageButton";
+import IconButton from "react-native-simple-elements/components/IconButton";
+import Image from "react-native-simple-elements/components/Image";
+import ImageButton from "react-native-simple-elements/components/ImageButton";
 import SegmentedControl from '@react-native-community/segmented-control';
-import Modal from "react-native-styled-paper/components/Modal";
+import Modal from "react-native-simple-elements/components/Modal";
 
 const Title = styled.h1`
   color: red;
