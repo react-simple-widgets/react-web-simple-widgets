@@ -40,7 +40,7 @@ function App() {
     return (
         <ThemeProvider theme={LightTheme}>
             <ToastProvider>
-                <Viewport testID="viewport_1">
+                <Viewport>
                     <Switch>
                         <Route path="/" component={HomePage} exact={true}/>
                         <Route path="/home" component={HomePage} />
