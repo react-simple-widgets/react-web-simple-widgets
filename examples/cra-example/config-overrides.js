@@ -52,7 +52,7 @@ module.exports = {
         // }),
         babelInclude([
             path.resolve("./src"), // make sure you link your own source
-            path.resolve("./node_modules/react-native-styled-paper"),
+            path.resolve("./node_modules/react-native-simple-elements"),
             // path.resolve("../../"),
         ]),
         addBabelPlugin('@babel/plugin-transform-modules-commonjs'),

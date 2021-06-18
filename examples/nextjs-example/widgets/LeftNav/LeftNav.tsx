@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import { space, SpaceProps } from "styled-system";
 import { leftnavComponents } from "widgets/leftnavComponents";
-import { Section, Accordion, Item, Icon } from "react-native-styled-paper/components/List";
+import { Section, Accordion, Item, Icon } from "react-native-simple-elements/components/List";
 import { useRouter } from "next/router";
 
 const Container = styled.div<SpaceProps>({

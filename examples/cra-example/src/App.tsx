@@ -2,9 +2,9 @@ import * as React from 'react';
 import { ThemeProvider } from "styled-components";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import LightTheme from "react-native-styled-paper/components/theme/LightTheme";
-import ToastProvider from 'react-native-styled-paper/components/Toast';
-import { Viewport } from "react-native-styled-paper/components/Container";
+import LightTheme from "react-native-simple-elements/components/theme/LightTheme";
+import ToastProvider from 'react-native-simple-elements/components/Toast';
+import { Viewport } from "react-native-simple-elements/components/Container";
 import { Switch, Route } from 'react-router-dom';
 import './App.css';
 

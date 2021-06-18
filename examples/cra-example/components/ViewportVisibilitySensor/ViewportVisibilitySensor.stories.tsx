@@ -1,7 +1,7 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { ScrollView, View, Text } from "react-native";
-import ViewportVisibilitySensor from "react-native-styled-simple-widgets/widgets/ViewportVisibilitySensor";
+import ViewportVisibilitySensor from "react-web-simple-widgets/widgets/ViewportVisibilitySensor";
 
 const items = [
     {},    

@@ -34,7 +34,7 @@
     ],
     "include": [
         "next-env.d.ts",
-        "node_modules/react-native-styled-paper",
+        "node_modules/react-native-simple-elements",
         "**/*.ts",
         "**/*.tsx",
         "**/*.js"

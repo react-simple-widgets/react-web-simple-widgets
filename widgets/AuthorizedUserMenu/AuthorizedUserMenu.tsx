@@ -1,7 +1,7 @@
 import * as React from "react";
-import Menu from "react-native-styled-paper/components/Menu";
-import ImageButton from "react-native-styled-paper/components/ImageButton";
-import { Text } from "react-native-styled-paper/components/Typography";
+import Menu from "react-native-simple-elements/components/Menu";
+import ImageButton from "react-native-simple-elements/components/ImageButton";
+import { Text } from "react-native-simple-elements/components/Typography";
 import { View } from "react-native";
 
 type Props = {

@@ -1,6 +1,6 @@
 import * as React from "react";
-import Carousel, { LeftArrow, RightArrow } from "react-native-styled-paper/components/Carousel";
-import Image from "react-native-styled-paper/components/Image/Image";
+import Carousel, { LeftArrow, RightArrow } from "react-native-simple-elements/components/Carousel";
+import Image from "react-native-simple-elements/components/Image/Image";
 import RatioBox from "../RatioBox";
 
 const defaultRenderItem = (props) => {

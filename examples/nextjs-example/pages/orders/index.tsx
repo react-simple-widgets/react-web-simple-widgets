@@ -1,12 +1,12 @@
 import * as React from "react";
 import { View } from "react-native";
-import Button from "react-native-styled-paper/components/Button";
-import { Text } from "react-native-styled-paper/components/Typography";
+import Button from "react-native-simple-elements/components/Button";
+import { Text } from "react-native-simple-elements/components/Typography";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { OrderCard } from "widgets/OrderCard/OrderCard";
 import Layout from "components/layout";
-import calculateViewMeasure from "react-native-styled-paper/components/apis/calculateViewMeasure";
+import calculateViewMeasure from "react-native-simple-elements/components/apis/calculateViewMeasure";
 import AppContext from "components/appContext";
 
 export default function OrderListPage(props) {

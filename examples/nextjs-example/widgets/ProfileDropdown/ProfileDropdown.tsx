@@ -1,7 +1,7 @@
 import * as React from "react";
-import Button from "react-native-styled-paper/components/Button";
-import Divider from "react-native-styled-paper/components/Divider";
-import Menu from "react-native-styled-paper/components/Menu";
+import Button from "react-native-simple-elements/components/Button";
+import Divider from "react-native-simple-elements/components/Divider";
+import Menu from "react-native-simple-elements/components/Menu";
 
 const ProfileDropdown = (props) => {
 
