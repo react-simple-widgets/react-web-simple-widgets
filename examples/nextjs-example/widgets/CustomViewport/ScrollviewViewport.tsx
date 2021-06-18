@@ -2,7 +2,7 @@ import * as React from "react";
 import { useWindowDimensions } from "react-native";
 import styled from "styled-components/native";
 import { layout, LayoutProps, space, SpaceProps } from "styled-system";
-import { Viewport } from "react-native-styled-paper/components/Container";
+import { Viewport } from "react-native-simple-elements/components/Container";
 
 const DefaultScrollview = styled.ScrollView<LayoutProps & SpaceProps>(
     layout,

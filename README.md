@@ -1,18 +1,18 @@
-# react-simple-widgets
+# react-web-simple-widgets
 
-[Docs](https://react-simple-widgets.github.io/react-simple-widgets)
+[Docs](https://react-simple-widgets.github.io/react-web-simple-widgets)
 ## Get Started
 
 ### Installation
 ```shell
-npm install react-native-styled-paper
-npm install react-simple-widgets
+npm install react-native-simple-elements
+npm install react-web-simple-widgets
 ```
 ### Usage
 
 ```js
-import PaperProviver from "react-native-styled-paper/components/theme/Provider";
-import Button from 'react-native-styled-paper/components/Button';
+import PaperProviver from "react-native-simple-elements/components/theme/Provider";
+import Button from 'react-native-simple-elements/components/Button';
 
 <PaperProviver>
     <Button

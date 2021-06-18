@@ -1,6 +1,6 @@
 import * as React from "react";
-import TextInput from "react-native-styled-paper/components/TextInput";
-import HelperText from "react-native-styled-paper/components/HelperText";
+import TextInput from "react-native-simple-elements/components/TextInput";
+import HelperText from "react-native-simple-elements/components/HelperText";
 
 type Props = {
     value: string;

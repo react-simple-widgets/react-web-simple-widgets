@@ -12,7 +12,7 @@
 /build
 # /storybook-static
 
-/react-native-styled-simple-widgets/
+/react-web-simple-widgets/
 
 # misc
 .DS_Store

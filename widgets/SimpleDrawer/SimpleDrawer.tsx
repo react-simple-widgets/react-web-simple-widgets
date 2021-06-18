@@ -1,5 +1,5 @@
 import * as React from "react";
-import Drawer from "react-native-styled-paper/components/Drawer";
+import Drawer from "react-native-simple-elements/components/Drawer";
 
 type Props = {
     items: Record<string, any>[],

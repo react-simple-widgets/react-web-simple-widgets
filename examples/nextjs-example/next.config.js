@@ -4,7 +4,7 @@ const withTM = require("next-transpile-modules")([
     // "react-native-safe-area-view",
     "react-native-vector-icons",
     "@react-native-community/segmented-control",
-    // "react-native-styled-paper",
+    // "react-native-simple-elements",
     "styled-components",
 ]);
 const nextEnv = require("next-env");
@@ -24,7 +24,7 @@ module.exports = withPlugins([withTM, withNextEnv], {
         config.module.rules.push({
             test: /\.(jsx|ts|tsx)$/,
             use: ["babel-loader"],
-            exclude: /(node_modules\/(?!(react-native-styled-paper)\/).*|dist|.stoybook)/,
+            exclude: /(node_modules\/(?!(react-native-simple-elements)\/).*|dist|.stoybook)/,
         });
 
         config.module.rules.push({
@@ -41,7 +41,7 @@ module.exports = withPlugins([withTM, withNextEnv], {
 
         // config.module.rules.push({
         //     test: /\.(ts|js)x?$/, // Just `tsx?` file only
-        //     exclude: /node_modules[/\\](?!react-native-styled-paper|react-native-safe-area-view)/,
+        //     exclude: /node_modules[/\\](?!react-native-simple-elements|react-native-safe-area-view)/,
         //     use: [
         //         {
         //             loader: "babel-loader",
@@ -54,7 +54,7 @@ module.exports = withPlugins([withTM, withNextEnv], {
             // Transform all direct `react-native` imports to `react-native-web`
             "^react-native$": "react-native-web",
             "react-native-vector-icons": "@ovaeasy/react-native-vector-icons",
-            "react-native-styled-paper": "./react-native-styled-paper",
+            "react-native-simple-elements": "./react-native-simple-elements",
             "widgets": "./widgets",
         };
         config.resolve.extensions = [

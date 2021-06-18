@@ -1,8 +1,8 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import CarouselBanner from "react-native-styled-simple-widgets/widgets/CarouselBanner";
-import RatioBox from "react-native-styled-simple-widgets/widgets/RatioBox";
-import { Text } from "react-native-styled-paper/components/Typography";
+import CarouselBanner from "react-web-simple-widgets/widgets/CarouselBanner";
+import RatioBox from "react-web-simple-widgets/widgets/RatioBox";
+import { Text } from "react-native-simple-elements/components/Typography";
 import { useWindowDimensions, View } from "react-native";
 import { select, withKnobs } from "@storybook/addon-knobs";
 

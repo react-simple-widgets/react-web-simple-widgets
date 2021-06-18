@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { space, SpaceProps } from "styled-system";
 import { useScrollbarSize } from "react-scrollbar-size";
 import HomeIcon from "@mdi/svg/svg/home.svg";
-import Appbar from "react-native-styled-paper/components/Appbar";
+import Appbar from "react-native-simple-elements/components/Appbar";
 import ProfileDropdown from "./ProfileDropdown";
 import AppContext from "components/appContext";
 

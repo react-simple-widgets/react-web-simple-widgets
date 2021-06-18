@@ -1,12 +1,12 @@
 import * as React from "react";
 import { useHistory } from "react-router-dom";
-import Button from "react-native-styled-paper/components/Button";
+import Button from "react-native-simple-elements/components/Button";
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from "src/types";
 import { ToastExample } from "src/components/Toast/ToastExample";
 import MinusBoxIcon from "@mdi/svg/svg/minus-box.svg";
 import { ScrollView } from "react-native";
-import Card from "react-native-styled-paper/components/Card";
+import Card from "react-native-simple-elements/components/Card";
 
 const testData = [
     {},
