@@ -124,8 +124,8 @@ export function throttle(callback, limit) {
     let wait = false;
     return () => {
         if (!wait) {
-            // eslint-disable-next-line prefer-rest-params
-            callback(...arguments);
+            // @ts-ignore
+            callback(...arguments); // eslint-disable-line prefer-rest-params
             wait = true;
             setTimeout(() => {
                 wait = false;
