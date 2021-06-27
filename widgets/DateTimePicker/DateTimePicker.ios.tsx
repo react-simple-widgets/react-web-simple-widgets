@@ -47,140 +47,140 @@ type Props = {
 };
 
 export class DateTimePickerModal extends React.PureComponent<Props> {
-  
-  static defaultProps = {
-      cancelTextIOS: "Cancel",
-      confirmTextIOS: "Confirm",
-      modalPropsIOS: {},
-      date: new Date(),
-      isDarkModeEnabled: undefined,
-      isVisible: false,
-      pickerContainerStyleIOS: {},
-  };
 
-  state = {
-      currentDate: this.props.date,
-      isPickerVisible: this.props.isVisible,
-  };
+    static defaultProps = {
+        cancelTextIOS: "Cancel",
+        confirmTextIOS: "Confirm",
+        modalPropsIOS: {},
+        date: new Date(),
+        isDarkModeEnabled: undefined,
+        isVisible: false,
+        pickerContainerStyleIOS: {},
+    };
 
-  didPressConfirm = false;
+    state = {
+        currentDate: this.props.date,
+        isPickerVisible: this.props.isVisible,
+    };
 
-  static getDerivedStateFromProps(props, state) {
-      if (props.isVisible && !state.isPickerVisible) {
-          return { currentDate: props.date, isPickerVisible: true };
-      }
-      return null;
-  }
+    didPressConfirm = false;
 
-  handleCancel = () => {
-      this.didPressConfirm = false;
-      this.props.onCancel();
-  };
+    static getDerivedStateFromProps(props, state) {
+        if (props.isVisible && !state.isPickerVisible) {
+            return { currentDate: props.date, isPickerVisible: true };
+        }
+        return null;
+    }
 
-  handleConfirm = () => {
-      this.didPressConfirm = true;
-      this.props.onConfirm(this.state.currentDate);
-  };
+    handleCancel = () => {
+        this.didPressConfirm = false;
+        this.props.onCancel();
+    };
 
-  handleHide = () => {
-      const { onHide } = this.props;
-      if (onHide) {
-          onHide(this.didPressConfirm, this.state.currentDate);
-      }
-      this.setState({ isPickerVisible: false });
-  };
+    handleConfirm = () => {
+        this.didPressConfirm = true;
+        this.props.onConfirm(this.state.currentDate);
+    };
 
-  handleChange = (event, date) => {
-      if (this.props.onChange) {
-          this.props.onChange(date);
-      }
-      this.setState({ currentDate: date });
-  };
+    handleHide = () => {
+        const { onHide } = this.props;
+        if (onHide) {
+            onHide(this.didPressConfirm, this.state.currentDate);
+        }
+        this.setState({ isPickerVisible: false });
+    };
 
-  render() {
-      const {
-          cancelTextIOS,
-          confirmTextIOS,
-          customCancelButtonIOS,
-          customConfirmButtonIOS,
-          customHeaderIOS,
-          customPickerIOS,
-          date,
-          headerTextIOS,
-          isDarkModeEnabled,
-          isVisible,
-          modalStyleIOS,
-          modalPropsIOS,
-          pickerContainerStyleIOS,
-          onCancel,
-          onConfirm,
-          onChange,
-          onHide,
-          ...otherProps
-      } = this.props;
-      const isAppearanceModuleAvailable = !!(
-          Appearance && Appearance.getColorScheme
-      );
-      const _isDarkModeEnabled =
-      isDarkModeEnabled === undefined && isAppearanceModuleAvailable
-          ? Appearance.getColorScheme() === "dark"
-          : isDarkModeEnabled || false;
+    handleChange = (event, date) => {
+        if (this.props.onChange) {
+            this.props.onChange(date);
+        }
+        this.setState({ currentDate: date });
+    };
 
-      //   const ConfirmButtonComponent = customConfirmButtonIOS || ConfirmButton;
-      const ConfirmButtonComponent = ConfirmButton;
-      //   const CancelButtonComponent = customCancelButtonIOS || CancelButton;
-      const CancelButtonComponent = CancelButton;
-      //   const HeaderComponent = customHeaderIOS || Header;
-      const HeaderComponent = Header;
-      //   const PickerComponent = customPickerIOS || DateTimePicker;
-      const PickerComponent = DateTimePicker;
+    render() {
+        const {
+            cancelTextIOS,
+            confirmTextIOS,
+            customCancelButtonIOS,
+            customConfirmButtonIOS,
+            customHeaderIOS,
+            customPickerIOS,
+            date,
+            headerTextIOS,
+            isDarkModeEnabled,
+            isVisible,
+            modalStyleIOS,
+            modalPropsIOS,
+            pickerContainerStyleIOS,
+            onCancel,
+            onConfirm,
+            onChange,
+            onHide,
+            ...otherProps
+        } = this.props;
+        const isAppearanceModuleAvailable = !!(
+            Appearance && Appearance.getColorScheme
+        );
+        const _isDarkModeEnabled =
+            isDarkModeEnabled === undefined && isAppearanceModuleAvailable
+                ? Appearance.getColorScheme() === "dark"
+                : isDarkModeEnabled || false;
+
+        //   const ConfirmButtonComponent = customConfirmButtonIOS || ConfirmButton;
+        const ConfirmButtonComponent = ConfirmButton;
+        //   const CancelButtonComponent = customCancelButtonIOS || CancelButton;
+        const CancelButtonComponent = CancelButton;
+        //   const HeaderComponent = customHeaderIOS || Header;
+        const HeaderComponent = Header;
+        //   const PickerComponent = customPickerIOS || DateTimePicker;
+        const PickerComponent = DateTimePicker;
 
 
-      const themedContainerStyle = _isDarkModeEnabled
-          ? pickerStyles.containerDark
-          : pickerStyles.containerLight;
+        const themedContainerStyle = _isDarkModeEnabled
+            ? pickerStyles.containerDark
+            : pickerStyles.containerLight;
 
-      const headerText =
-      headerTextIOS || (this.props.mode === "time"
-          ? "Pick a time"
-          : "Pick a date");
+        const headerText =
+            headerTextIOS || (this.props.mode === "time"
+                ? "Pick a time"
+                : "Pick a date");
 
-      return (
-          <Modal
-              isVisible={isVisible}
-              contentStyle={[pickerStyles.modal, modalStyleIOS]}
-              onBackdropPress={this.handleCancel}
-              onHide={this.handleHide}
-              {...modalPropsIOS}
-          >
-              <View
-                  style={[
-                      pickerStyles.container,
-                      themedContainerStyle,
-                      pickerContainerStyleIOS,
-                  ]}
-              >
-                  <HeaderComponent label={headerText} />
-                  <PickerComponent
-                      display="spinner"
-                      {...otherProps}
-                      value={this.state.currentDate}
-                      onChange={this.handleChange}
-                  />
-                  <ConfirmButtonComponent
-                      isDarkModeEnabled={_isDarkModeEnabled}
-                      onPress={this.handleConfirm}
-                      label={confirmTextIOS}
-                  />
-              </View>
-              <CancelButtonComponent
-                  isDarkModeEnabled={_isDarkModeEnabled}
-                  onPress={this.handleCancel}
-                  label={cancelTextIOS}
-              />
-          </Modal>
-      );
-  }
+        return (
+            <Modal
+                isVisible={isVisible}
+                contentStyle={[pickerStyles.modal, modalStyleIOS]}
+                onBackdropPress={this.handleCancel}
+                onHide={this.handleHide}
+                {...modalPropsIOS}
+            >
+                <View
+                    style={[
+                        pickerStyles.container,
+                        themedContainerStyle,
+                        pickerContainerStyleIOS,
+                    ]}
+                >
+                    <HeaderComponent label={headerText} />
+                    <PickerComponent
+                        display="spinner"
+                        {...otherProps}
+                        value={this.state.currentDate}
+                        onChange={this.handleChange}
+                    />
+                    <ConfirmButtonComponent
+                        isDarkModeEnabled={_isDarkModeEnabled}
+                        onPress={this.handleConfirm}
+                        label={confirmTextIOS}
+                    />
+                </View>
+                <CancelButtonComponent
+                    isDarkModeEnabled={_isDarkModeEnabled}
+                    onPress={this.handleCancel}
+                    label={cancelTextIOS}
+                />
+            </Modal>
+        );
+    }
 }
 
 const pickerStyles = StyleSheet.create({
