@@ -3,6 +3,14 @@ import { View, Button } from "react-native";
 import { storiesOf } from "@storybook/react";
 import DateTimePicker from "react-web-simple-widgets/widgets/DateTimePicker/DateTimePicker";
 import DateTimePickerPopup from "react-web-simple-widgets/widgets/DateTimePicker/mweb2/Popup";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+
+const viewportParams = {
+    viewports: {
+        ...INITIAL_VIEWPORTS,
+    },
+    defaultViewport: "responsive",
+};
 
 const DateTimePickerExample = () => {
 
@@ -56,6 +64,16 @@ const DateTimePickerPopupExample = () => {
             <Button title="Show Date Picker" onPress={showDatePicker} />
             <DateTimePickerPopup
                 visible={isDatePickerVisible}
+                datePicker={
+                    <DateTimePicker
+                        // rootNativeProps={{'data-xx': 'yy'}}
+                        // minDate={minDate}
+                        // maxDate={maxDate}
+                        // defaultDate={now}
+                        // mode={props.mode}
+                        // locale={props.locale}
+                    />
+                }
                 mode="date"
                 onConfirm={handleConfirm}
                 onCancel={hideDatePicker}
@@ -76,4 +94,15 @@ storiesOf("DateTimePicker", module)
         return (
             <DateTimePickerPopupExample />
         );
+    })
+    .add("DateTimePickerPopup2", () => {
+
+        return (
+            <DateTimePickerPopupExample />
+        );
+    }, {
+        viewport: {
+            ...viewportParams,
+            defaultViewport: "iphonex",
+        },
     })
