@@ -11,6 +11,7 @@ import ActionIcon from "@mdi/svg/svg/gesture-tap.svg";
 import EmailIcon from "@mdi/svg/svg/email.svg";
 import SettingsIcon from "@mdi/svg/svg/cog.svg";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+import { View } from "react-native";
 
 const viewportParams = {
     viewports: {
@@ -18,6 +19,26 @@ const viewportParams = {
     },
     defaultViewport: "responsive",
 };
+
+const items = [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+];
 
 const SimpleBottomNavigationExample = (props) => {
     const { drawerIsOpen, setDrawerIsOpen } = React.useContext(DrawerContext);
@@ -30,6 +51,15 @@ const SimpleBottomNavigationExample = (props) => {
                 Toggle Drawer
             </Button>
             <Text>Hello</Text>
+            {(Array.isArray(items) && items.length > 0) &&
+                items.map((item, index) => {
+                    return (
+                        <View key={index} style={{ width: "100%", height: "100px" }}>
+                            <Text>Hello</Text>
+                        </View>
+                    )
+                })
+            }
             <SimpleBottomNavigation
                 items={[
                     { label: "Home", value: "home", icon: HomeIcon },
