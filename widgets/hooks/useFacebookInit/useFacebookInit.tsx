@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import * as React from "react";
 
 type Props = {
     appId: string,
@@ -9,9 +9,9 @@ const useFacebookInit = (props: Props) => {
         appId,
     } = props;
 
-    const [fbSdkLoaded, setFbSdkLoaded] = useState(false);
+    const [fbSdkLoaded, setFbSdkLoaded] = React.useState(false);
 
-    useEffect(() => {
+    React.useEffect(() => {
         setupFacebook();
     }, []);
 
