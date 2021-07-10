@@ -16,12 +16,11 @@ const copyDirSync = (srcFolders, rootSrc, rootDest, option = {}) => {
 };
 
 const snapCoreFolders = [""];
-
-fs.ensureDirSync("./examples/nextjs-example/react-web-simple-widgets/widgets");
+fs.ensureDirSync("./react-web-simple-widgets");
 copyDirSync(
     snapCoreFolders,
-    "./widgets",
-    "./examples/nextjs-example/react-web-simple-widgets/widgets",
+    ".",
+    "./react-web-simple-widgets",
     {
         filter: function(stat, filepath, filename) {
             // do not want copy .git directories
@@ -37,28 +36,11 @@ copyDirSync(
                 return false;
             }
 
-            return true; // remind to return a true value when file check passed.
-        },
-    }
-);
-
-fs.ensureDirSync("./examples/cra-example/react-web-simple-widgets/widgets");
-copyDirSync(
-    snapCoreFolders,
-    "./widgets",
-    "./examples/cra-example/react-web-simple-widgets/widgets",
-    {
-        filter: function(stat, filepath, filename) {
-            // do not want copy .git directories
-            if (stat === "directory" && filename === "node_modules") {
+            if (stat === "directory" && filename === "react-web-simple-widgets") {
                 return false;
             }
 
-            if (stat === "directory" && filename === ".git") {
-                return false;
-            }
-
-            if (filename === "yarn.lock") {
+            if (stat === "directory" && filename === "examples") {
                 return false;
             }
 
@@ -66,10 +48,3 @@ copyDirSync(
         },
     }
 );
-
-// const snapDomFolders = ['assets', 'components', 'utils'];
-// copyDirSync(
-//   snapDomFolders,
-//   './assets',
-//   './dist/assets'
-// );
