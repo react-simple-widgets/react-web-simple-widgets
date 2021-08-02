@@ -59,7 +59,7 @@ const UserFilePickerExample = () => {
     );
 }
 
-storiesOf("useFilePicker", module)
+storiesOf("hooks/useFilePicker", module)
     .add("Default", () => {
         return (
             <UserFilePickerExample

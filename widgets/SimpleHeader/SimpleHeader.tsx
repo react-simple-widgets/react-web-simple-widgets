@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import useScrollbarSize from "react-scrollbar-size";
-import Appbar from "react-native-simple-elements/components/Appbar";
+import { AppbarBackAction, AppbarContent, AppbarHeader } from "react-native-simple-elements/components/Appbar";
 import AuthorizedUserMenu from "../AuthorizedUserMenu";
 
 const HeaderContainer = styled.div({
@@ -23,11 +23,11 @@ const defaultProps = {
 
 const SimpleHeader = (props: Props) => {
 
-    const { 
-        title, 
-        backButtonIcon, 
+    const {
+        title,
+        backButtonIcon,
         onBackButtonClick,
-        children, 
+        children,
         loggedInUser,
         isUserIconCircle,
     } = props;
@@ -46,20 +46,20 @@ const SimpleHeader = (props: Props) => {
                 marginRight: scrollbarSize || 0,
             }}
         >
-            <Appbar.Header>
-                <Appbar.BackAction 
+            <AppbarHeader>
+                <AppbarBackAction
                     icon={backButtonIcon}
-                    onPress={_handleBackActionPress} 
+                    onPress={_handleBackActionPress}
                 />
-                <Appbar.Content 
+                <AppbarContent
                     title={title}
                 />
                 {children}
-                <AuthorizedUserMenu 
+                <AuthorizedUserMenu
                     circle={isUserIconCircle}
-                    loggedInUser={loggedInUser} 
+                    loggedInUser={loggedInUser}
                 />
-            </Appbar.Header>
+            </AppbarHeader>
         </HeaderContainer>
     );
 };

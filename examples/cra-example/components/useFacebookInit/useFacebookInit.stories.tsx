@@ -1,13 +1,14 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import useFacebookInit from "react-web-simple-widgets/widgets/hooks/useFacebookInit";
+import useFacebookLogin from "react-web-simple-widgets/widgets/hooks/useFacebookInit";
 import { Text } from "react-native-simple-elements/components/Typography";
 
-storiesOf("useFacebookInit", module)
+storiesOf("hooks/useFacebookInit", module)
     .add("Default", () => {
 
-        const { fbSdkLoaded, fbsdk } = useFacebookInit({
+        const { isSdkLoaded, fbsdk } = useFacebookLogin({
             appId: "362860461203242",
+            xfbml: true,
         });
 
         const colorScheme = "light";
@@ -18,12 +19,12 @@ storiesOf("useFacebookInit", module)
         const mobile = false;
 
         React.useEffect(() => {
-            if (fbSdkLoaded) {
+            if (isSdkLoaded) {
                 fbsdk.XFBML.parse(
-                    // document.getElementById("fb-comments")
+                    document.getElementById("fb-comments")
                 )
             }
-        }, [ fbSdkLoaded ]);
+        }, [ isSdkLoaded ]);
 
         return (
             <>
@@ -38,7 +39,7 @@ storiesOf("useFacebookInit", module)
                     data-skin={colorScheme}
                     data-mobile={mobile}
                 >
-                    <Text>Hello</Text>
+                    Hello
                 </div>
             </>
         )

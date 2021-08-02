@@ -1,8 +1,8 @@
 import * as React from "react";
+import { View } from "react-native";
 import Menu from "react-native-simple-elements/components/Menu";
 import ImageButton from "react-native-simple-elements/components/ImageButton";
-import { Text } from "react-native-simple-elements/components/Typography";
-import { View } from "react-native";
+import Text from "react-native-simple-elements/components/Text";
 
 type Props = {
     circle?: boolean,
@@ -15,7 +15,7 @@ const defaultProps = {
 
 const AuthorizedUserMenu = (props: Props) => {
 
-    const { 
+    const {
         loggedInUser,
         circle,
     } = props;
@@ -42,7 +42,7 @@ const AuthorizedUserMenu = (props: Props) => {
                 <ImageButton
                     source={{ uri: avatarUrl }}
                     circle={circle}
-                    onPress={openMenu} 
+                    onPress={openMenu}
                 />
             }
         >

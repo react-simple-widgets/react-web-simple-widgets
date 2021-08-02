@@ -1,5 +1,7 @@
-import useFacebookInit from "./useFacebookInit";
+import useFacebookLogin from "./useFacebookInit";
+import FacebookLogin from "./FacebookLogin";
 
 export {
-    useFacebookInit as default,
+    useFacebookLogin as default,
+    FacebookLogin,
 };

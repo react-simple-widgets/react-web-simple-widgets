@@ -2,7 +2,7 @@ import * as React from "react";
 import { Animated, TouchableOpacity } from "react-native";
 import { SvgIcon } from "react-native-simple-elements/components/Icon";
 import Surface from "react-native-simple-elements/components/Surface";
-import { Text } from "react-native-simple-elements/components/Typography";
+import Text from "react-native-simple-elements/components/Text";
 
 type Props = {
     items: Record<string, any>[],

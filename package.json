@@ -4,32 +4,6 @@
     "description": "",
     "main": "dist/components/index.ts",
     "types": "dist/types/index.d.ts",
-    "scripts": {
-        "cra-example": "cd examples/cra-example && yarn",
-        "nextjs-example": "cd examples/nextjs-example && yarn",
-        "rn-example": "cd examples/rn-example && yarn",
-        "build": "yarn build:types && yarn compile && yarn copy:src",
-        "build:types": "rimraf -rf types && tsc --emitDeclarationOnly -p tsconfig-types.json",
-        "compile": "rimraf -rf dist && bob build",
-        "compile:babel": "rimraf -rf dist && babel src/ --out-dir dist --extensions \".ts,.tsx\"",
-        "postcompile": "node --experimental-json-modules buildScripts/postCompile.js",
-        "copy:src": "node ./CopyAndSyncSrc.js",
-        "copy:docs": "node ./CopyAndSyncDocs.js",
-        "start:deploy-st": "http-server examples/cra-example/storybook-static",
-        "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
-        "st": "yarn cra-example storybook",
-        "st-install": "yarn cra-example install",
-        "st-build": "yarn cra-example build-storybook",
-        "st-update": "yarn cra-example install",
-        "st-upgrade": "yarn cra-example upgrade react-web-simple-widgets",
-        "st-build-all": "yarn copy:src && yarn st-install && yarn st-upgrade && yarn st-build && rimraf ./docs && yarn copy:docs",
-        "deploy": "gh-pages -d examples/cra-example/storybook-static",
-        "release": "semantic-release",
-        "type-check": "tsc --noEmit",
-        "format": "eslint . --ext ts --ext tsx --ext js --fix",
-        "lint": "eslint . --ext ts --ext tsx --ext js",
-        "test": "jest --passWithNoTests"
-    },
     "homepage": "https://react-simple-widgets.github.io/react-web-simple-widgets",
     "repository": {
         "type": "git",
@@ -88,6 +62,7 @@
         "react-native-animatable": "^1.3.3",
         "react-native-builder-bob": "^0.17.1",
         "react-native-iphone-x-helper": "^1.3.1",
+        "react-native-simple-elements": "1.3.0",
         "react-native-testing-library": "^6.0.0",
         "react-scripts": "^4.0.1",
         "react-test-renderer": "^17.0.1",
@@ -105,6 +80,7 @@
         "react-native": "0.63.2",
         "react-native-animatable": "^1.3.3",
         "react-native-iphone-x-helper": "^1.3.1",
+        "react-native-simple-elements": "1.3.0",
         "redux": "^4.1.0",
         "styled-components": "^5.2.1",
         "styled-system": "^5.1.5"
@@ -120,7 +96,6 @@
         "immutable": "^4.0.0-rc.12",
         "lodash.throttle": "^4.1.1",
         "react-addons-shallow-compare": "^15.6.3",
-        "react-native-simple-elements": "^1.0.0",
         "react-scrollbar-size": "^4.0.0"
     },
     "lint-staged": {
@@ -150,5 +125,32 @@
         "files": [
             "widgets/"
         ]
+    },
+    "scripts": {
+        "cra-example": "cd examples/cra-example && yarn",
+        "nextjs-example": "cd examples/nextjs-example && yarn",
+        "rn-example": "cd examples/rn-example && yarn",
+        "build": "yarn build:types && yarn compile && yarn copy:src",
+        "build:types": "rimraf -rf types && tsc --emitDeclarationOnly -p tsconfig-types.json",
+        "compile": "rimraf -rf dist && bob build",
+        "compile:babel": "rimraf -rf dist && babel src/ --out-dir dist --extensions \".ts,.tsx\"",
+        "postcompile": "node --experimental-json-modules buildScripts/postCompile.js",
+        "copy:src": "node ./CopyAndSyncSrc.js",
+        "copy:docs": "node ./CopyAndSyncDocs.js",
+        "start:deploy-st": "http-server examples/cra-example/storybook-static",
+        "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+        "st": "yarn cra-example storybook",
+        "st-install": "yarn cra-example install",
+        "st-build": "yarn cra-example build-storybook",
+        "st-update": "yarn cra-example install",
+        "st-upgrade": "yarn cra-example upgrade react-web-simple-widgets",
+        "st-pre-dev": "yarn copy:src && yarn st-install && yarn st-upgrade",
+        "st-build-all": "yarn copy:src && yarn st-install && yarn st-upgrade && yarn st-build && rimraf ./docs && yarn copy:docs",
+        "deploy": "gh-pages -d examples/cra-example/storybook-static",
+        "release": "semantic-release",
+        "type-check": "tsc --noEmit",
+        "format": "eslint . --ext ts --ext tsx --ext js --fix",
+        "lint": "eslint . --ext ts --ext tsx --ext js",
+        "test": "jest --passWithNoTests"
     }
 }
