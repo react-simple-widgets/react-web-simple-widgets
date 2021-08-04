@@ -216,7 +216,7 @@ const useFacebookInit = (props: Props) => {
         isSdkLoaded,
         fbLogin,
         // @ts-ignore
-        fbsdk: window?.FB,
+        // fbsdk: window?.FB,
     };
 };
 
