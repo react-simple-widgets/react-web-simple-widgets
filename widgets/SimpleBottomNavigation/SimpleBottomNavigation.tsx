@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Animated, TouchableOpacity } from "react-native";
+import { Animated, StyleProp, TextStyle, TouchableOpacity, ViewStyle } from "react-native";
 import { SvgIcon } from "react-native-simple-elements/components/Icon";
 import Surface from "react-native-simple-elements/components/Surface";
 import Text from "react-native-simple-elements/components/Text";
@@ -7,14 +7,16 @@ import Text from "react-native-simple-elements/components/Text";
 type Props = {
     items: Record<string, any>[],
     onItemPress?: (item) => void,
+    style?: StyleProp<ViewStyle>,
+    itemTextStyle?: StyleProp<TextStyle>,
 }
 
-const SimpleBottomNavigation = (props: Props) => {
-
-    const {
-        items,
-        onItemPress,
-    } = props;
+const SimpleBottomNavigation = ({
+    items,
+    onItemPress,
+    style,
+    itemTextStyle,
+}: Props) => {
 
     const heightValue = React.useRef(new Animated.Value(0)).current;
 
@@ -59,10 +61,13 @@ const SimpleBottomNavigation = (props: Props) => {
             }}
         >
             <Surface
-                style={{
-                    flexDirection: "row",
-                    width: "100%",
-                }}
+                style={[
+                    {
+                        flexDirection: "row",
+                        width: "100%",
+                    },
+                    style,
+                ]}
             >
                 {Array.isArray(items) && items.length > 0 &&
                     items.map((item, index) => {
@@ -86,7 +91,7 @@ const SimpleBottomNavigation = (props: Props) => {
                                         icon={item.icon}
                                     />
                                 }
-                                <Text>{item.label}</Text>
+                                <Text style={itemTextStyle}>{item.label}</Text>
                             </TouchableOpacity>
                         );
                     })
