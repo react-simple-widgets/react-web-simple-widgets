@@ -8,6 +8,7 @@ type Props = {
     items: Record<string, any>[],
     onItemPress?: (item) => void,
     style?: StyleProp<ViewStyle>,
+    itemIconColor?: string,
     itemTextStyle?: StyleProp<TextStyle>,
 }
 
@@ -15,6 +16,7 @@ const SimpleBottomNavigation = ({
     items,
     onItemPress,
     style,
+    itemIconColor,
     itemTextStyle,
 }: Props) => {
 
@@ -89,6 +91,7 @@ const SimpleBottomNavigation = ({
                                 {item.icon &&
                                     <SvgIcon
                                         icon={item.icon}
+                                        color={itemIconColor ?? undefined}
                                     />
                                 }
                                 <Text style={itemTextStyle}>{item.label}</Text>
