@@ -129,7 +129,6 @@
     "scripts": {
         "cra-example": "cd examples/cra-example && yarn",
         "nextjs-example": "cd examples/nextjs-example && yarn",
-        "rn-example": "cd examples/rn-example && yarn",
         "build": "yarn build:types && yarn compile && yarn copy:src",
         "build:types": "rimraf -rf types && tsc --emitDeclarationOnly -p tsconfig-types.json",
         "compile": "rimraf -rf dist && bob build",
@@ -144,7 +143,7 @@
         "st-build": "yarn cra-example build-storybook",
         "st-update": "yarn cra-example install",
         "st-upgrade": "yarn cra-example upgrade react-web-simple-widgets",
-        "st-pre-dev": "yarn copy:src && yarn st-install && yarn st-upgrade",
+        "st-pre-dev": "rm -rf react-web-simple-widgets && yarn copy:src && yarn st-upgrade",
         "st-build-all": "yarn copy:src && yarn st-install && yarn st-upgrade && yarn st-build && rimraf ./docs && yarn copy:docs",
         "deploy": "gh-pages -d examples/cra-example/storybook-static",
         "release": "semantic-release",

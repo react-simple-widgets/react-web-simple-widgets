@@ -1,12 +1,11 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import useFacebookLogin from "react-web-simple-widgets/widgets/hooks/useFacebookInit";
-import { Text } from "react-native-simple-elements/components/Typography";
 
 storiesOf("hooks/useFacebookInit", module)
     .add("Default", () => {
 
-        const { isSdkLoaded, fbsdk } = useFacebookLogin({
+        const { isSdkLoaded } = useFacebookLogin({
             appId: "362860461203242",
             xfbml: true,
         });
@@ -20,7 +19,8 @@ storiesOf("hooks/useFacebookInit", module)
 
         React.useEffect(() => {
             if (isSdkLoaded) {
-                fbsdk.XFBML.parse(
+                // @ts-ignore
+                window.FB.XFBML.parse(
                     document.getElementById("fb-comments")
                 )
             }

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import FullScreen, { useFullScreenHandle } from "react-web-simple-widgets/widgets/Fullscreen";
-import { Text } from "react-native-simple-elements/components/Typography";
+import Text from "react-native-simple-elements/components/Text";
 import Button from "react-native-simple-elements/components/Button";
 
 const FullscreenExample = (props) => {
