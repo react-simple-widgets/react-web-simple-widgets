@@ -13951,10 +13951,10 @@ react-native-linear-gradient@^2.5.6:
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.5.6.tgz#96215cbc5ec7a01247a20890888aa75b834d44a0"
   integrity sha512-HDwEaXcQIuXXCV70O+bK1rizFong3wj+5Q/jSyifKFLg0VWF95xh8XQgfzXwtq0NggL9vNjPKXa016KuFu+VFg==
 
-react-native-simple-elements@1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/react-native-simple-elements/-/react-native-simple-elements-1.3.0.tgz#ba735d377a95c5b41b6f2105758f55041499aa75"
-  integrity sha512-vUbTlmNAFjAMVTY0AtsZs+DTCexMf/NFx9jMh17yJ8kHJT6OZQknDWA3eBSaj2P0iozbfWUs5enKvFwLt/EGQA==
+react-native-simple-elements@1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/react-native-simple-elements/-/react-native-simple-elements-1.5.1.tgz#e88b9ec2fb7402a20d43f0ba3d63d9f748beec93"
+  integrity sha512-ovB2TlINoVz7qybm2vsn7MRA3uC+yu2KbHjOc5jnUK+BBEEgOGpfwyyCvIwTxSuKUxR2V30xXXgM7yoj6YClGA==
   dependencies:
     color "3.1.2"
     react-native-linear-gradient "^2.5.6"
