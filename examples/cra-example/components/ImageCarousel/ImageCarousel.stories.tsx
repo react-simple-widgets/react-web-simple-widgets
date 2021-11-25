@@ -28,7 +28,7 @@ const DefaultExample = () => {
         <View>
             <ImageCarousel
                 responsive={[
-                    { breakPoint: 1280, cardsToShow: 1 },
+                    { breakPoint: 1280, cardsToShow: 3 },
                     { breakPoint: 760, cardsToShow: 1 },
                 ]}
                 infinite={true}
@@ -51,7 +51,7 @@ const AutoPlayExample = () => {
         <View>
             <ImageCarousel
                 responsive={[
-                    { breakPoint: 1280, cardsToShow: 1 },
+                    { breakPoint: 1280, cardsToShow: 3 },
                     { breakPoint: 760, cardsToShow: 1 },
                 ]}
                 infinite={true}

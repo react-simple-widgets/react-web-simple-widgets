@@ -212,11 +212,11 @@ class Slider extends React.Component<Props, State> {
     }
 
     renderChildren(children, opts?) {
-        const { childWidth, initialCard, firstRender } = this.state;
+        const { childWidth, firstRender, cardsToShow } = this.state;
         const displayCards = [];
         React.Children.forEach(children, (child, index) => {
             if (firstRender) {
-                if (index === initialCard) {
+                if (index < cardsToShow) {
                     displayCards.push(
                         <CardWrapper key={index} width={childWidth}>
                             {child}
