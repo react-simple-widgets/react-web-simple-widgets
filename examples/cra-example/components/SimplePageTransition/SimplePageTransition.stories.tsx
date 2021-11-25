@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import SimplePageTransition from "react-web-simple-widgets/widgets/SimplePageTransition";
 import { DrawerContext } from "react-native-simple-elements/components/Drawer";
 import Button from "react-native-simple-elements/components/Button";
-import { Text } from "react-native-simple-elements/components/Typography";
+import Text from "react-native-simple-elements/components/Text";
 
 const SimpleDrawerExample = (props) => {
     const { drawerIsOpen, setDrawerIsOpen } = React.useContext(DrawerContext);

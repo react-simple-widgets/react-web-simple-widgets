@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import { Text } from "react-native-simple-elements/components/Typography";
+import Text from "react-native-simple-elements/components/Text";
 import * as Avatar from "react-native-simple-elements/components/Avatar";
 import FolderIcon from "@mdi/svg/svg/folder.svg";
 import Button from "react-native-simple-elements/components/Button";

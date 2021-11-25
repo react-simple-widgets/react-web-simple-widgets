@@ -1,19 +1,24 @@
 import * as React from "react";
-import { Animated, TouchableOpacity } from "react-native";
+import { Animated, StyleProp, TextStyle, TouchableOpacity, ViewStyle } from "react-native";
 import { SvgIcon } from "react-native-simple-elements/components/Icon";
-import { Text } from "react-native-simple-elements/components/Typography";
+import Surface from "react-native-simple-elements/components/Surface";
+import Text from "react-native-simple-elements/components/Text";
 
 type Props = {
     items: Record<string, any>[],
     onItemPress?: (item) => void,
+    style?: StyleProp<ViewStyle>,
+    itemIconColor?: string,
+    itemTextStyle?: StyleProp<TextStyle>,
 }
 
-const SimpleBottomNavigation = (props: Props) => {
-
-    const {
-        items,
-        onItemPress,
-    } = props;
+const SimpleBottomNavigation = ({
+    items,
+    onItemPress,
+    style,
+    itemIconColor,
+    itemTextStyle,
+}: Props) => {
 
     const heightValue = React.useRef(new Animated.Value(0)).current;
 
@@ -57,32 +62,44 @@ const SimpleBottomNavigation = (props: Props) => {
                 borderTopColor: "black",
             }}
         >
-            {Array.isArray(items) && items.length > 0 &&
-                items.map((item, index) => {
-                    return (
-                        <TouchableOpacity
-                            key={index}
-                            style={{
-                                width: items.length === 5 ? "20%" : items.length === 4 ? "25%" : "20%",
-                                alignItems: "center",
-                                justifyContent: "center",
-                            }}
-                            onPress={() => {
-                                if (typeof onItemPress === "function") {
-                                    onItemPress(item);
+            <Surface
+                style={[
+                    {
+                        flexDirection: "row",
+                        width: "100%",
+                    },
+                    style,
+                ]}
+            >
+                {Array.isArray(items) && items.length > 0 &&
+                    items.map((item, index) => {
+                        return (
+                            <TouchableOpacity
+                                key={index}
+                                style={{
+                                    width: items.length === 5 ? "20%" : items.length === 4 ? "25%" : "20%",
+                                    flexDirection: "column",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                }}
+                                onPress={() => {
+                                    if (typeof onItemPress === "function") {
+                                        onItemPress(item);
+                                    }
+                                }}
+                            >
+                                {item.icon &&
+                                    <SvgIcon
+                                        icon={item.icon}
+                                        color={itemIconColor ?? undefined}
+                                    />
                                 }
-                            }}
-                        >
-                            {item.icon &&
-                                <SvgIcon
-                                    icon={item.icon}
-                                />
-                            }
-                            <Text>{item.label}</Text>
-                        </TouchableOpacity>
-                    );
-                })
-            }
+                                <Text style={itemTextStyle}>{item.label}</Text>
+                            </TouchableOpacity>
+                        );
+                    })
+                }
+            </Surface>
         </Animated.View>
     );
 };

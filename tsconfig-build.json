@@ -22,15 +22,17 @@
         "allowSyntheticDefaultImports": true
     },
     "exclude": [
-        "node_modules", 
-        ".next", 
-        "out", 
-        "examples"
+        "node_modules",
+        ".next",
+        "out",
+        "dist",
+        "examples",
+        "react-web-simple-widgets"
     ],
     "include": [
-        "next-env.d.ts", 
-        "**/*.ts", 
-        "**/*.tsx", 
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
         "**/*.js"
     ]
 }

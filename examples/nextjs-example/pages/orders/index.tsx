@@ -1,7 +1,7 @@
 import * as React from "react";
 import { View } from "react-native";
 import Button from "react-native-simple-elements/components/Button";
-import { Text } from "react-native-simple-elements/components/Typography";
+import Text from "react-native-simple-elements/components/Text";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { OrderCard } from "widgets/OrderCard/OrderCard";

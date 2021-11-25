@@ -29,12 +29,13 @@
         "dist",
         "examples",
         "buildScripts",
+        "react-web-simple-widgets"
     ],
     "include": [
         "next-env.d.ts",
         "**/*.ts",
         "**/*.tsx",
         "**/*.js",
-        "**/*.json", "widgets/VideoPlayer/actions/video.ys",
+        "**/*.json",
     ]
 }
