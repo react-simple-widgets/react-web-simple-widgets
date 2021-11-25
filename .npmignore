@@ -6,3 +6,4 @@ buildScripts
 .editorconfig
 
 **.test.tsx
+react-web-simple-widgets
