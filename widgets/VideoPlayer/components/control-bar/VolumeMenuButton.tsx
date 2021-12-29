@@ -15,7 +15,7 @@ type Props = {
 
 type State = {
     active?: boolean,
-}
+};
 
 const defaultProps = {
     vertical: false,

@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import ChevronRightIcon from "@mdi/svg/svg/chevron-right.svg";
+import SvgIcon from "../../SvgIcon";
 
 const RightArrowWrapper = styled.div`
   position: absolute;
@@ -37,7 +38,7 @@ const RightArrow = ({ onClick, disabled }: Props) => {
                 onClick={_handleClick}
                 disabled={disabled}
             >
-                <ChevronRightIcon size={24} />
+                <SvgIcon icon={ChevronRightIcon} />
             </RightArrowButton>
         </RightArrowWrapper>
     );

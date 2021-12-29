@@ -15,9 +15,9 @@ interface CurrentTimeState {
 }
 
 class CurrentTime extends React.PureComponent<CurrentTimeProps, CurrentTimeState> {
-    audio?: HTMLAudioElement
+    audio?: HTMLAudioElement;
 
-    hasAddedAudioEventListener = false
+    hasAddedAudioEventListener = false;
 
     constructor(props: CurrentTimeProps) {
         super(props);
@@ -37,7 +37,7 @@ class CurrentTime extends React.PureComponent<CurrentTimeProps, CurrentTimeState
 
     state: CurrentTimeState = {
         currentTime: this.props.defaultCurrentTime,
-    }
+    };
 
     handleAudioCurrentTimeChange = (e: Event): void => {
         const audio = e.target as HTMLAudioElement;
@@ -50,7 +50,7 @@ class CurrentTime extends React.PureComponent<CurrentTimeProps, CurrentTimeState
                     timeFormat
                 ) || defaultCurrentTime,
         });
-    }
+    };
 
     addAudioEventListeners = (): void => {
         const { audio } = this.props;
@@ -60,7 +60,7 @@ class CurrentTime extends React.PureComponent<CurrentTimeProps, CurrentTimeState
             audio.addEventListener("timeupdate", this.handleAudioCurrentTimeChange);
             audio.addEventListener("loadedmetadata", this.handleAudioCurrentTimeChange);
         }
-    }
+    };
 
     componentDidMount(): void {
         this.addAudioEventListeners();

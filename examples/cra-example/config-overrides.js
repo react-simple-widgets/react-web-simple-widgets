@@ -6,7 +6,7 @@ module.exports = {
     webpack: override(
         // customize-cra plugins here
         addWebpackModuleRule({
-            test: /\.(js|ts|tsx)$/,
+            test: /\.(js|mjs|ts|tsx)$/,
             exclude: /node_modules[/\\](?!react-native-vector-icons|react-native-safe-area-view)/,
             use: {
                 loader: "babel-loader",

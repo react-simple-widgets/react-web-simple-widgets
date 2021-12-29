@@ -14,7 +14,7 @@ type Props = {
 
 type State = {
     percentage?: string, 
-}
+};
 
 class VolumeBar extends React.Component<Props, State> {
 
