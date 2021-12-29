@@ -26,11 +26,11 @@ type ButtonProps = {
     showThumbnailsButton?: boolean,
 
     size?: string
-}
+};
 
 type SettingsProps = {
     autoplaySpeed?: number
-}
+};
 type Props = {
     autoplay?: boolean,
     buttons?: ButtonProps,
@@ -53,7 +53,7 @@ type Props = {
     thumbnailsRef?: React.Ref<any>,
     thumbnailsSize?: any,
     thumbnailsContainerPadding?: string,
-}
+};
 
 const LightboxControls = ({
     autoplay,

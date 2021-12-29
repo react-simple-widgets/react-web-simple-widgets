@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 type StyledLightboxProps = {
     overlayColor?: string,
-}
+};
 // Main DIV containing the entire light-box
 export const StyledLightbox = styled(motion.div)<StyledLightboxProps>`
   background-color: ${(props) => props.overlayColor};

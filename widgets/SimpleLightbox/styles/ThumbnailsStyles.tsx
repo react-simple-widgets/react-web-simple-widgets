@@ -47,7 +47,7 @@ const thumbnailsOnLeft = (props) => css`
 type ThumbnailsDivSizesProps = {
     width?: number,
     height?: number,
-}
+};
 
 type StyledThumbnailGalleryProps = {
     thumbnailsContainerPadding?: string | number,
@@ -128,7 +128,7 @@ type StyledThumbnailGalleryImageProps = {
     thumbnailsSize?: number[],
     thumbnailsOpacity?: string | number,
     thumbnailsGap?: string | number,
-}
+};
 
 // The images on the thumbnail gallery
 export const StyledThumbnailGalleryImage = styled.a<StyledThumbnailGalleryImageProps>`
@@ -162,7 +162,7 @@ export const StyledThumbnailGalleryImage = styled.a<StyledThumbnailGalleryImageP
 type StyledVideoIconStyleProps = {
     thumbnailsSize?: number[],
     thumbnailsOpacity?: string | number,
-}
+};
 
 // The icons inside the image thumbnail if it's a video
 export const StyledVideoIconStyle = styled.svg<StyledVideoIconStyleProps>`

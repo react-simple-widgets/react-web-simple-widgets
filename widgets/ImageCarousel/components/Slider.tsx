@@ -12,7 +12,7 @@ import DefaultDot from "./Dot";
 type ResponsiveItemProps = {
     breakPoint: number,
     cardsToShow: number,
-}
+};
 
 type Props = {
     LeftArrow?: (props?) => React.ReactElement,
@@ -40,7 +40,7 @@ type State = {
     cardsToShow?: number,
     hideArrows?: boolean,
     firstRender?: boolean,
-}
+};
 
 const defaultProps = {
     showDots: true,

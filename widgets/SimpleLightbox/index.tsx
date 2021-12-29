@@ -6,7 +6,7 @@ import { useLightbox } from "./hooks";
 
 type Props = {
     children: React.ReactNode | React.ReactNode[],
-}
+};
 
 const LightboxProvider = ({ children }: Props) => {
     return (

@@ -9,7 +9,7 @@ type CaptionOptions = {
     captionFontStyle?: string,
     captionFontWeight?: number | string,
     captionTextTransform?: string
-}
+};
 
 type Props = {
     id?: string,
@@ -18,7 +18,7 @@ type Props = {
     thumbnailsPosition?: string,
     caption?: string,
     captionStyle?: any,
-}
+};
 
 const CaptionContainerComponent = ({
     captionOptions,

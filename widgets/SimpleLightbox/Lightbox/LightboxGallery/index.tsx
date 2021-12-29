@@ -23,34 +23,34 @@ type ThumbnailsProps = {
     thumbnailsPosition?: string,
     thumbnailsSize?: any[],
     showThumbnails?: boolean
-}
+};
 type SettingsProps = {
     overlayColor?: string,
     autoplaySpeed?: number,
     disableKeyboardControls?: boolean,
     disablePanzoom?: boolean,
     hideControlsAfter?: number | boolean,
-}
+};
 
 type ButtonsProps = {
     backgroundColor?: string,
     iconColor?: string,
     iconPadding?: string,
     size?: string
-}
+};
 
 type ProgressBarProps = {
     showProgressBar?: boolean,
     background?: string,
     height?: string
-}
+};
 
 type OptionsProps = {
     thumbnails?: ThumbnailsProps,
     settings?: SettingsProps,
     buttons?: ButtonsProps,
     progressBar?: ProgressBarProps
-}
+};
 type Props = {
     callbacks?: any,
     compensateForScrollbar?: number,
@@ -59,7 +59,7 @@ type Props = {
     dispatch?: (value?) => void,
     selectedElement?: any,
     options?: OptionsProps,
-}
+};
 
 const LightboxGallery = ({
     options,

@@ -58,7 +58,7 @@ type State = {
     autoLoad?: boolean,
     isSdkLoaded?: boolean,
     isProcessing?: boolean,
-}
+};
 
 class FacebookLogin extends React.Component<Props, State> {
 

@@ -20,21 +20,21 @@ interface VolumePosInfo {
 }
 
 class VolumeControls extends React.Component<VolumeControlsProps, VolumeControlsState> {
-    audio?: HTMLAudioElement
+    audio?: HTMLAudioElement;
 
-    hasAddedAudioEventListener = false
+    hasAddedAudioEventListener = false;
 
-    volumeBar = React.createRef<HTMLDivElement>()
+    volumeBar = React.createRef<HTMLDivElement>();
 
     volumeAnimationTimer: any = 0;
 
-    lastVolume = this.props.volume // To store the volume before clicking mute button
+    lastVolume = this.props.volume; // To store the volume before clicking mute button
 
     state: VolumeControlsState = {
         currentVolumePos: `${((this.lastVolume / 1) * 100 || 0).toFixed(2)}%`,
         hasVolumeAnimation: false,
         isDraggingVolume: false,
-    }
+    };
 
     // get volume info while dragging by indicator mouse or touch
     getCurrentVolume = (event: TouchEvent | MouseEvent): VolumePosInfo => {
@@ -63,11 +63,11 @@ class VolumeControls extends React.Component<VolumeControlsProps, VolumeControls
         }
 
         return { currentVolume, currentVolumePos };
-    }
+    };
 
     handleContextMenu = (event: React.SyntheticEvent): void => {
         event.preventDefault();
-    }
+    };
 
     handleClickVolumeButton = (): void => {
         const { audio } = this.props;
@@ -77,7 +77,7 @@ class VolumeControls extends React.Component<VolumeControlsProps, VolumeControls
         } else {
             audio.volume = this.lastVolume;
         }
-    }
+    };
 
     handleVolumnControlMouseOrTouchDown = (event: React.MouseEvent | React.TouchEvent): void => {
         event.stopPropagation();
@@ -93,7 +93,7 @@ class VolumeControls extends React.Component<VolumeControlsProps, VolumeControls
             window.addEventListener("touchmove", this.handleWindowMouseOrTouchMove);
             window.addEventListener("touchend", this.handleWindowMouseOrTouchUp);
         }
-    }
+    };
 
     handleWindowMouseOrTouchMove = (event: TouchEvent | MouseEvent): void => {
         if (event instanceof MouseEvent) {
@@ -113,7 +113,7 @@ class VolumeControls extends React.Component<VolumeControlsProps, VolumeControls
             audio.volume = currentVolume;
             this.setState({ currentVolumePos });
         }
-    }
+    };
 
     handleWindowMouseOrTouchUp = (event: MouseEvent | TouchEvent): void => {
         event.stopPropagation();
@@ -126,7 +126,7 @@ class VolumeControls extends React.Component<VolumeControlsProps, VolumeControls
             window.removeEventListener("touchmove", this.handleWindowMouseOrTouchMove);
             window.removeEventListener("touchend", this.handleWindowMouseOrTouchUp);
         }
-    }
+    };
 
     handleAudioVolumeChange = (e: Event): void => {
         const { isDraggingVolume } = this.state;
@@ -144,7 +144,7 @@ class VolumeControls extends React.Component<VolumeControlsProps, VolumeControls
         this.volumeAnimationTimer = setTimeout(() => {
             this.setState({ hasVolumeAnimation: false });
         }, 100);
-    }
+    };
 
     componentDidUpdate(): void {
         const { audio } = this.props;

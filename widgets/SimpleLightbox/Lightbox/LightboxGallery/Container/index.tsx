@@ -23,7 +23,7 @@ type SettingsProps = {
     slideTransitionTimingFunction?:
     string |
     any[]
-}
+};
 
 type CaptionProps = {
     captionAlignment?: string,
@@ -37,19 +37,19 @@ type CaptionProps = {
     captionContainerPadding?: string,
     captionTextTransform?: string,
     showCaption?: boolean
-}
+};
 
 type ThumbnailsProps = {
     showThumbnails?: boolean,
     thumbnailsOpacity?: number,
     thumbnailsPosition?: string,
     thumbnailsSize?: any[]
-}
+};
 type OptionsProps = {
     settings?: SettingsProps,
     caption?: CaptionProps,
     thumbnails?: ThumbnailsProps,
-}
+};
 type Props = {
     caption?: string,
     direction?: string,
@@ -71,7 +71,7 @@ type Props = {
     thumbnailsOpacity?: number,
     type?: string,
     width?: number,
-}
+};
 
 function ContainerComponent({
     caption,

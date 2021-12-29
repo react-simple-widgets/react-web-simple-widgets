@@ -10,13 +10,13 @@ type ProgressBarProps = {
     backgroundColor?: string,
     fillColor?: string,
     height?: string
-}
+};
 type Props = {
     autoplay?: boolean,
     autoplaySpeed?: number,
     currentElementID?: string,
     progressBar?: ProgressBarProps
-  }
+};
 
 const ProgressBarComponent = ({
     autoplay,

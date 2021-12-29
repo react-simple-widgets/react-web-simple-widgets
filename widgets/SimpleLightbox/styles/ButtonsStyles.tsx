@@ -9,72 +9,71 @@ type StyledButtonProps = {
 
 // The buttons
 const StyledButton = styled.button<StyledButtonProps>`
-  position: absolute;
-  height: ${(props) => (props.buttonsSize ? props.buttonsSize : "30px")};
-  width: ${(props) => (props.buttonsSize ? props.buttonsSize : "30px")};
-  transition: color 0.3s ease;
-  background-color: ${(props) =>
+    position: absolute;
+    height: ${(props) => (props.buttonsSize ? props.buttonsSize : "30px")};
+    width: ${(props) => (props.buttonsSize ? props.buttonsSize : "30px")};
+    transition: color 0.3s ease;
+    background-color: ${(props) =>
         props.buttonsBackgroundColor
             ? props.buttonsBackgroundColor
             : "rgba(30, 30, 36, 0.8)"};
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
-  cursor: pointer;
-  margin: 0;
-  padding: 0;
-  visibility: inherit;
-  z-index: 9998;
-  opacity: 1;
-  transition: opacity 0.3s ease;
-  display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  .SRLIdle & {
-    opacity: 0;
-    @media (max-width: 768px) {
-      opacity: 1;
-    }
-    @media (max-width: 360px) {
-      opacity: 1;
-    }
-  }
-  &:focus {
-    outline: none;
-  }
-  @media (max-width: 768px) {
-    height: ${(props) =>
-        props.buttonsSize
-            ? Math.round(parseInt(props.buttonsSize, 10) / 1.2) + "px"
-            : "30px"};
-    width: ${(props) =>
-        props.buttonsSize
-            ? Math.round(parseInt(props.buttonsSize, 10) / 1.2) + "px"
-            : "30px"};
-    .SRLIdle & {
-      opacity: 1;
-    }
-  }
-  div {
-    height: ${(props) => (props.buttonsSize ? props.buttonsSize : "30px")};
-    width: ${(props) => (props.buttonsSize ? props.buttonsSize : "30px")};
-    padding: ${(props) =>
-        props.buttonsIconPadding ? props.buttonsIconPadding : "5px"};
-    box-sizing: border-box;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    visibility: inherit;
+    z-index: 9998;
+    opacity: 1;
+    transition: opacity 0.3s ease;
     display: flex;
     align-items: center;
-    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
-      padding: 10px;
-      height: ${(props) =>
-        props.buttonsSize
-            ? Math.round(parseInt(props.buttonsSize, 10) / 1) + "px"
-            : "30px"};
-      width: ${(props) =>
-        props.buttonsSize
-            ? Math.round(parseInt(props.buttonsSize, 10) / 1) + "px"
-            : "30px"};
+    align-content: center;
+    justify-content: center;
+    .SRLIdle & {
+        opacity: 0;
+        @media (max-width: 768px) {
+            opacity: 1;
+        }
+        @media (max-width: 360px) {
+            opacity: 1;
+        }
     }
+    &:focus {
+        outline: none;
+    }
+    @media (max-width: 768px) {
+        height: ${(props) =>
+        props.buttonsSize
+            ? Math.round(parseInt(props.buttonsSize, 10) / 1.2) + "px"
+            : "30px"};
+        width: ${(props) =>
+        props.buttonsSize
+            ? Math.round(parseInt(props.buttonsSize, 10) / 1.2) + "px"
+            : "30px"};
+        .SRLIdle & {
+        opacity: 1;
+        }
+    }
+    div {
+        height: ${(props) => (props.buttonsSize ? props.buttonsSize : "30px")};
+        width: ${(props) => (props.buttonsSize ? props.buttonsSize : "30px")};
+        padding: ${(props) => props.buttonsIconPadding ? props.buttonsIconPadding : "5px"};
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+            padding: 10px;
+            height: ${(props) =>
+        props.buttonsSize
+            ? Math.round(parseInt(props.buttonsSize, 10) / 1) + "px"
+            : "30px"};
+            width: ${(props) =>
+        props.buttonsSize
+            ? Math.round(parseInt(props.buttonsSize, 10) / 1) + "px"
+            : "30px"};
+        }
     @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
       padding: 10px;
       height: ${(props) =>
@@ -129,7 +128,8 @@ const StyledButton = styled.button<StyledButtonProps>`
 type ThumbnailsDivSizesProps = {
     width?: number,
     height?: number,
-}
+};
+
 type StyledTopButtonsProps = {
     showProgressBar?: boolean,
     autoplay?: boolean,
@@ -138,20 +138,20 @@ type StyledTopButtonsProps = {
     thumbnailsDivSizes?: ThumbnailsDivSizesProps,
     thumbnailsSize?: ThumbnailsDivSizesProps,
     hideThumbnails?: boolean,
-}
+};
 // Top right buttons
 const StyledTopButtons = styled.div<StyledTopButtonsProps>`
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  top: calc(env(safe-area-inset-top) + 5px);
-  right: calc(env(safe-area-inset-right) + 5px);
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  transition: 0.3s ease;
-  will-change: right;
-  /* Offset the buttons if the progress bar is active and the autoplay is "playing" */
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    top: calc(env(safe-area-inset-top) + 5px);
+    right: calc(env(safe-area-inset-right) + 5px);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    transition: 0.3s ease;
+    will-change: right;
+    /* Offset the buttons if the progress bar is active and the autoplay is "playing" */
   ${(props) =>
         props.showProgressBar &&
         props.autoplay &&
@@ -208,7 +208,7 @@ const StyledZoomOutIcon = styled(StyledButton)`
 
 type StyledAutoplayIconProps = {
     autoplaySpeed?: number,
-}
+};
 // The "autoplay" button
 const StyledAutoplayIcon = styled(StyledButton)<StyledAutoplayIconProps>`
   position: relative;
@@ -218,7 +218,7 @@ const StyledAutoplayIcon = styled(StyledButton)<StyledAutoplayIconProps>`
 
 type StyledThumbnailsIconProps = {
     thumbnailsPosition?: string,
-}
+};
 // The "download" button
 const StyledThumbnailsIcon = styled(StyledButton)<StyledThumbnailsIconProps>`
   position: relative;
@@ -255,7 +255,7 @@ type StyledNextIconProps = {
     hideThumbnails?: boolean,
     thumbnailsDivSizes :ThumbnailsDivSizesProps,
     thumbnailsSize :ThumbnailsDivSizesProps,
-}
+};
 
 // The "next" button
 const StyledNextIcon = styled(StyledButton)<StyledNextIconProps>`
@@ -291,7 +291,7 @@ type StyledPrevIconProps = {
     hideThumbnails?: boolean,
     thumbnailsDivSizes :ThumbnailsDivSizesProps,
     thumbnailsSize :ThumbnailsDivSizesProps,
-}
+};
 // The "prev" button
 const StyledPrevIcon = styled(StyledButton)<StyledPrevIconProps>`
   top: calc(50% - 50px);

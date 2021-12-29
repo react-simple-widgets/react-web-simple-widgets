@@ -1,19 +1,19 @@
 import { MAIN_LAYOUT, TIME_FORMAT } from "./constants";
 
-type throttleFunction<T> = (arg: T) => void
+type throttleFunction<T> = (arg: T) => void;
 
 export const getMainLayoutClassName = (layout: MAIN_LAYOUT): string => {
     switch (layout) {
-    case "stacked":
-        return "rhap_stacked";
-    case "stacked-reverse":
-        return "rhap_stacked-reverse";
-    case "horizontal":
-        return "rhap_horizontal";
-    case "horizontal-reverse":
-        return "rhap_horizontal-reverse";
-    default:
-        return "rhap_stacked";
+        case "stacked":
+            return "rhap_stacked";
+        case "stacked-reverse":
+            return "rhap_stacked-reverse";
+        case "horizontal":
+            return "rhap_horizontal";
+        case "horizontal-reverse":
+            return "rhap_horizontal-reverse";
+        default:
+            return "rhap_stacked";
     }
 };
 
@@ -67,4 +67,4 @@ export function throttle<K>(func: throttleFunction<K>, limit: number): throttleF
     };
 }
 
-export type OnSeek = (audio: HTMLAudioElement, time: number) => Promise<void>
+export type OnSeek = (audio: HTMLAudioElement, time: number) => Promise<void>;

@@ -28,7 +28,7 @@ module.exports = {
                         "@babel/plugin-proposal-nullish-coalescing-operator",
                         "@babel/plugin-transform-template-literals",
                         // "@babel/plugin-transform-flow-strip-types",
-                        // "inline-react-svg",
+                        "inline-react-svg",
                         [
                             "module-resolver",
                             {

@@ -17,7 +17,7 @@ type Props = {
     containerRef?: any,
     imgWidth?: number,
     imgHeight?: number
-  }
+};
 
 const ImageLoad = React.memo(
     ({

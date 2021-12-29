@@ -12,7 +12,7 @@ type Props = {
 
 type State = {
     mouseTime?: Record<string, any>,
-}
+};
 
 export default class ProgressControl extends React.Component<Props, State> {
 

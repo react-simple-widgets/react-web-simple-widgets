@@ -8,12 +8,12 @@ type CaptionStyleProps = {
     captionColor?: string,
     captionFontStyle?: string,
     captionTextTransform?: string,
-}
+};
 type StyledCaptionProps = {
     captionAlignment?: string,
     captionStyle?: CaptionStyleProps,
     thumbnailsPosition?: string,
-}
+};
 // The caption
 export const StyledCaption = styled.div<StyledCaptionProps>`
   color: white;

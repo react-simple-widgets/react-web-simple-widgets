@@ -11,7 +11,7 @@ type State = {
     hidden?: boolean,
     count?: number,
     operation?: Record<string, any>,
-}
+};
 
 export default class Bezel extends React.Component<Props, State> {
 
@@ -22,7 +22,7 @@ export default class Bezel extends React.Component<Props, State> {
     state: State = {
         hidden: true,
         operation: {},
-    }
+    };
 
     constructor(props, context) {
         super(props, context);

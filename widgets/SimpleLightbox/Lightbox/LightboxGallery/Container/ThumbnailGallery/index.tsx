@@ -14,14 +14,14 @@ type ThumbnailsProps = {
     thumbnailsOpacity?: number,
     thumbnailsPosition?: string,
     thumbnailsSize?: any
-}
+};
 type Props = {
     elements?: any[],
     handleCurrentElement?: (evt?, e2?) => void,
     currentId?: string,
     thumbnailsRef?: React.RefObject<any>,
     thumbnails?: ThumbnailsProps
-  }
+};
 
 const ThumbnailGalleryComponent = ({
     elements,

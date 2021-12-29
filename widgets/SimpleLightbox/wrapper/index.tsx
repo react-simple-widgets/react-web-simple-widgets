@@ -38,7 +38,7 @@ type SettingsProps = {
     slideTransitionTimingFunction?: string |
     any[],
     usingPreact?: boolean
-}
+};
 
 type ButtonPros = {
     backgroundColor?: string,
@@ -52,7 +52,7 @@ type ButtonPros = {
     showPrevButton?: boolean,
     showThumbnailsButton?: boolean,
     size?: string
-}
+};
 
 type CaptionProps = {
     captionColor?: string,
@@ -66,7 +66,7 @@ type CaptionProps = {
     captionContainerPadding?: string,
     captionTextTransform?: string,
     showCaption?: boolean
-}
+};
 
 type ThumbnailsProps = {
     showThumbnails?: boolean,
@@ -78,14 +78,14 @@ type ThumbnailsProps = {
     thumbnailsOpacity?: number,
     thumbnailsPosition?: string,
     thumbnailsSize?: any[]
-}
+};
 
 type ProgressBarProps = {
     backgroundColor?: string,
     fillColor?: string,
     height?: string,
     showProgressBar?: boolean
-}
+};
 
 type DefaultOptionsProps = {
     settings?: SettingsProps,
@@ -94,14 +94,14 @@ type DefaultOptionsProps = {
     thumbnails?: ThumbnailsProps
     ,
     progressBar?: ProgressBarProps,
-}
+};
 
 type DefaultCallbacksProps = {
     onCountSlides?: (evt?) => void,
     onLightboxClosed?: (evt?) => void,
     onLightboxOpened?: (evt?) => void,
     onSlideChange?: (evt?) => void
-}
+};
 type Props = {
     defaultOptions?: DefaultOptionsProps,
     defaultCallbacks?: DefaultCallbacksProps,
@@ -290,23 +290,23 @@ const LightboxWrapper = ({
                     } else {
                         elementId++;
                         switch (type) {
-                        case IMAGE: {
-                            const element = {
-                                id: e.getAttribute("srl_elementid"),
-                                source: e.src || e.currentSrc,
-                                caption: e.alt,
-                                thumbnail: e.src || e.currentSrc,
-                                width: e.naturalWidth,
-                                height: e.naturalHeight,
-                                type: "image"
-                            };
-                            handleAttachListener(e, element, handleElement);
-                            return element;
-                        }
-                        case GALLERY_IMAGE: {
-                            const element = {
-                                id: e.getAttribute("srl_elementid"),
-                                source:
+                            case IMAGE: {
+                                const element = {
+                                    id: e.getAttribute("srl_elementid"),
+                                    source: e.src || e.currentSrc,
+                                    caption: e.alt,
+                                    thumbnail: e.src || e.currentSrc,
+                                    width: e.naturalWidth,
+                                    height: e.naturalHeight,
+                                    type: "image"
+                                };
+                                handleAttachListener(e, element, handleElement);
+                                return element;
+                            }
+                            case GALLERY_IMAGE: {
+                                const element = {
+                                    id: e.getAttribute("srl_elementid"),
+                                    source:
                                         e.parentElement.href ||
                                         e.offsetParent.parentElement.href ||
                                         e.offsetParent.href ||
@@ -314,25 +314,25 @@ const LightboxWrapper = ({
                                         e.src ||
                                         e.currentSrc ||
                                         null,
-                                caption: e.alt || e.textContent,
-                                thumbnail:
+                                    caption: e.alt || e.textContent,
+                                    thumbnail:
                                         e.parentElement.href ||
                                         e.offsetParent.parentElement.href ||
                                         e.offsetParent.href ||
                                         e.parentElement.parentElement.parentElement.href || // UGLY FIX FOR GATSBY
                                         e.src ||
                                         e.currentSrc,
-                                width: null,
-                                height: null,
-                                type: "gallery_image"
-                            };
+                                    width: null,
+                                    height: null,
+                                    type: "gallery_image"
+                                };
 
-                            handleAttachListener(e, element, handleElement);
-                            return element;
-                        }
-                        default: {
-                            return undefined;
-                        }
+                                handleAttachListener(e, element, handleElement);
+                                return element;
+                            }
+                            default: {
+                                return undefined;
+                            }
                         }
                     }
                 })

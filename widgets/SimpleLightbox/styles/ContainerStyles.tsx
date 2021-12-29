@@ -36,7 +36,7 @@ type StyledContainerProps = {
     thumbnailsPosition?: string,
     hideThumbnails?: boolean,
     showCaption?: boolean,
-}
+};
 // The content of the light-box
 export const StyledContainer = styled.div<StyledContainerProps>`
   bottom: 0;

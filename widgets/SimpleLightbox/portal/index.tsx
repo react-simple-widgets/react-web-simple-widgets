@@ -13,7 +13,7 @@ type Props = {
     isOpened?: boolean,
     children: React.ReactNode | React.ReactNode[],
     className?: string,
-}
+};
 
 const Portal = ({ isOpened, children, className }: Props) => {
     const context = React.useContext(LightboxCtx);

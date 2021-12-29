@@ -9,7 +9,7 @@ import {
 
 type Props = {
     children: React.ReactNode | React.ReactNode[]
-}
+};
 
 const initialState = {
     elements: [],
@@ -117,41 +117,41 @@ const LightboxContextComponent = (props: Props) => {
     // Reducer
     const reducer = (state, action) => {
         switch (action.type) {
-        case READY_LIGHTBOX:
-            return {
-                ...state,
-                ...action.mergedSettings,
-                elements: action.elements,
-                isLoaded: true
-            };
-        case RESET_LIGHTBOX: {
-            return {
-                ...initialState
-            };
-        }
-        case HANDLE_ELEMENT:
-            return {
-                ...state,
-                isOpened: true,
-                selectedElement: {
-                    ...action.element
-                }
-            };
-        case OPEN_AT_INDEX:
-            return {
-                ...state,
-                isOpened: true,
-                selectedElement: {
-                    ...state.elements[action.index]
-                }
-            };
-        case CLOSE_LIGHTBOX:
-            return {
-                ...state,
-                isOpened: false
-            };
-        default:
-            return state;
+            case READY_LIGHTBOX:
+                return {
+                    ...state,
+                    ...action.mergedSettings,
+                    elements: action.elements,
+                    isLoaded: true
+                };
+            case RESET_LIGHTBOX: {
+                return {
+                    ...initialState
+                };
+            }
+            case HANDLE_ELEMENT:
+                return {
+                    ...state,
+                    isOpened: true,
+                    selectedElement: {
+                        ...action.element
+                    }
+                };
+            case OPEN_AT_INDEX:
+                return {
+                    ...state,
+                    isOpened: true,
+                    selectedElement: {
+                        ...state.elements[action.index]
+                    }
+                };
+            case CLOSE_LIGHTBOX:
+                return {
+                    ...state,
+                    isOpened: false
+                };
+            default:
+                return state;
         }
     };
     const [state, dispatch] = React.useReducer(reducer, initialState);

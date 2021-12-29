@@ -18,10 +18,10 @@ const thumbnailsOnLeft = (props) => css`
 
 type CaptionDivSizesProps = {
     height?: number,
-}
+};
 type ThumbnailsDivSizesProps = {
     height?: number,
-}
+};
 type StyledElementContainerProps = {
     captionDivSizes?: CaptionDivSizesProps,
     thumbnailsDivSizes?: ThumbnailsDivSizesProps,
@@ -29,7 +29,7 @@ type StyledElementContainerProps = {
     hideThumbnails?: boolean,
     showThumbnails?: boolean,
     showCaption?: boolean,
-}
+};
 // The container for the image
 export const StyledElementContainer = styled.div<StyledElementContainerProps>`
   position: relative;
@@ -152,7 +152,7 @@ export const StyledElementWrapper = styled(motion.div)`
 type StyledImageProps = {
     boxShadow?: string,
     disablePanzoom?: boolean,
-}
+};
 // Image Element
 export const StyledImage = styled(motion.img)<StyledImageProps>`
   background: transparent;
