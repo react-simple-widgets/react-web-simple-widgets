@@ -12,7 +12,7 @@ import DefaultDot from "./Dot";
 type ResponsiveItemProps = {
     breakPoint: number,
     cardsToShow: number,
-}
+};
 
 type Props = {
     LeftArrow?: (props?) => React.ReactElement,
@@ -40,7 +40,7 @@ type State = {
     cardsToShow?: number,
     hideArrows?: boolean,
     firstRender?: boolean,
-}
+};
 
 const defaultProps = {
     showDots: true,
@@ -212,11 +212,11 @@ class Slider extends React.Component<Props, State> {
     }
 
     renderChildren(children, opts?) {
-        const { childWidth, initialCard, firstRender } = this.state;
+        const { childWidth, firstRender, cardsToShow } = this.state;
         const displayCards = [];
         React.Children.forEach(children, (child, index) => {
             if (firstRender) {
-                if (index === initialCard) {
+                if (index < cardsToShow) {
                     displayCards.push(
                         <CardWrapper key={index} width={childWidth}>
                             {child}

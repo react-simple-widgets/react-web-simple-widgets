@@ -14,7 +14,7 @@ type Props = {
 type State = {
     items?: any[],
     selectedIndex?: number,
-}
+};
 
 const defaultProps = {
     offMenuText: "Off",

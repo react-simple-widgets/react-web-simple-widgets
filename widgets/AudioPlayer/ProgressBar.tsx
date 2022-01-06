@@ -33,11 +33,11 @@ interface TimePosInfo {
 }
 
 class ProgressBar extends React.Component<ProgressBarProps, ProgressBarState> {
-    audio?: HTMLAudioElement
+    audio?: HTMLAudioElement;
 
-    timeOnMouseMove = 0 // Audio's current time while mouse is down and moving over the progress bar
+    timeOnMouseMove = 0; // Audio's current time while mouse is down and moving over the progress bar
 
-    hasAddedAudioEventListener = false
+    hasAddedAudioEventListener = false;
 
     downloadProgressAnimationTimer?: any;
 
@@ -47,7 +47,7 @@ class ProgressBar extends React.Component<ProgressBarProps, ProgressBarState> {
         hasDownloadProgressAnimation: false,
         downloadProgressArr: [],
         waitingForSeekCallback: false,
-    }
+    };
 
     getDuration(): number {
         const { audio, srcDuration } = this.props;
@@ -76,11 +76,11 @@ class ProgressBar extends React.Component<ProgressBarProps, ProgressBarState> {
         const duration = this.getDuration();
         const currentTime = (duration * relativePos) / maxRelativePos;
         return { currentTime, currentTimePos: `${((relativePos / maxRelativePos) * 100).toFixed(2)}%` };
-    }
+    };
 
     handleContextMenu = (event: React.SyntheticEvent): void => {
         event.preventDefault();
-    }
+    };
 
     /* Handle mouse down or touch start on progress bar event */
     handleMouseDownOrTouchStartProgressBar = (event: React.MouseEvent | React.TouchEvent): void => {
@@ -98,7 +98,7 @@ class ProgressBar extends React.Component<ProgressBarProps, ProgressBarState> {
                 window.addEventListener("touchend", this.handleWindowMouseOrTouchUp);
             }
         }
-    }
+    };
 
     handleWindowMouseOrTouchMove = (event: TouchEvent | MouseEvent): void => {
         if (event instanceof MouseEvent) {
@@ -117,7 +117,7 @@ class ProgressBar extends React.Component<ProgressBarProps, ProgressBarState> {
             this.timeOnMouseMove = currentTime;
             this.setState({ currentTimePos });
         }
-    }
+    };
 
     handleWindowMouseOrTouchUp = (event: MouseEvent | TouchEvent): void => {
         event.stopPropagation();
@@ -153,7 +153,7 @@ class ProgressBar extends React.Component<ProgressBarProps, ProgressBarState> {
             window.removeEventListener("touchmove", this.handleWindowMouseOrTouchMove);
             window.removeEventListener("touchend", this.handleWindowMouseOrTouchUp);
         }
-    }
+    };
 
     handleAudioTimeUpdate = throttle((e: Event): void => {
         const { isDraggingProgress } = this.state;
@@ -166,7 +166,7 @@ class ProgressBar extends React.Component<ProgressBarProps, ProgressBarState> {
         this.setState({
             currentTimePos: `${((currentTime / duration) * 100 || 0).toFixed(2)}%`,
         });
-    }, this.props.progressUpdateInterval)
+    }, this.props.progressUpdateInterval);
 
     handleAudioDownloadProgressUpdate = (e: Event): void => {
         const audio = e.target as HTMLAudioElement;
@@ -187,7 +187,7 @@ class ProgressBar extends React.Component<ProgressBarProps, ProgressBarState> {
         this.downloadProgressAnimationTimer = setTimeout(() => {
             this.setState({ hasDownloadProgressAnimation: false });
         }, 200);
-    }
+    };
 
     componentDidUpdate(): void {
         const { audio } = this.props;

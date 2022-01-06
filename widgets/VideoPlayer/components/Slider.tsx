@@ -25,7 +25,7 @@ type Props = {
 
 type State = {
     active?: boolean,
-}
+};
 
 export default class Slider extends React.Component<Props, State> {
 

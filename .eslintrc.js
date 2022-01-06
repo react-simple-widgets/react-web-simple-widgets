@@ -38,9 +38,12 @@ module.exports = {
                 "allow": ["info", "warn", "error"]
             }
         ],
-        "indent": [ 2, 4 ],
-        "semi": [ 2, "always" ],
-        "quotes": [ 2, "double" ],
+        "indent": "off",
+        "@typescript-eslint/indent": [ 2, 4 ],
+        "semi": "off",
+        "@typescript-eslint/semi": [ 2, "always" ],
+        "quotes": "off",
+        "@typescript-eslint/quotes": [ 2, "double" ],
         "@typescript-eslint/explicit-module-boundary-types": 0,
         "@typescript-eslint/ban-ts-comment": 0,
         "@typescript-eslint/no-unused-vars": [ 1, { "args": "none" } ],
