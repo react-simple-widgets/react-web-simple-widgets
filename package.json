@@ -99,6 +99,7 @@
         "immutable": "^4.0.0-rc.12",
         "lodash.throttle": "^4.1.1",
         "memoize-one": "^6.0.0",
+        "normalize-wheel": "^1.0.1",
         "react-addons-shallow-compare": "^15.6.3",
         "react-native-svg": "^12.1.1",
         "react-scrollbar-size": "^4.0.0",
