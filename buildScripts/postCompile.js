@@ -14,20 +14,20 @@ const libName = "";
 
     // Keep only the needed folders
     if (libName === "widgets") {
-        fs.removeSync("dist/components");
+        fs.removeSync("lib/components");
     }
 
     if (libName === "components") {
-        fs.removeSync("dist/widgets");
+        fs.removeSync("lib/widgets");
     }
 
     pkg["main"] = "widgets/index.ts";
     pkg["types"] = "types/index.d.ts";
 
     // Prepare the package.json for release
-    fs.writeFileSync("dist/package.json", JSON.stringify(pkg, null, 2));
+    fs.writeFileSync("lib/package.json", JSON.stringify(pkg, null, 2));
 
     // Prepare .npmrc for release
-    fs.copyFileSync(".npmrc", "dist/.npmrc");
-    fs.copySync("types", "dist/types");
+    fs.copyFileSync(".npmrc", "lib/.npmrc");
+    fs.copySync("types", "lib/types");
 })();

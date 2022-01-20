@@ -7,7 +7,7 @@
         "target": "esnext",
         "lib": ["dom", "dom.iterable", "esnext"],
         "rootDir": ".",
-        "outDir": "./dist/",
+        "outDir": "./lib/",
         "allowJs": true,
         "skipLibCheck": true,
         "strict": false,
