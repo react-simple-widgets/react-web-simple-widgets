@@ -1,7 +1,7 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import SectionScrollspy from "react-web-simple-widgets/widgets/SectionScrollspy";
-import Button from "react-native-simple-elements/dist/commonjs/Button";
+import Button from "react-native-simple-elements/components/Button";
 
 const DefaultExample = (props) => {
 
